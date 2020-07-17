@@ -10,12 +10,14 @@ struct Person{
     QString country;
     QString beliefs;
     QString career;
+    //Bitacora
+    QString binacle;
     //ArrayList sins;
     //ArrayList goodActions;
     SonsList *sons;
 
     //Constructor
-    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career, /*ArrayList sins,ArrayList goodActinos,*/sonsList *sons){
+    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career, /*ArrayList sins,ArrayList goodActinos,*/SonsList *sons){
         this->id = id;
         this->name = name;
         this->secondName = secondName;

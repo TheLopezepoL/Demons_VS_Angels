@@ -1,11 +1,11 @@
 #ifndef MUNDO_H
 #define MUNDO_H
+#include "peopleList.h"
+
+struct Mundo{
+    PeopleList *peopleList;
 
 
-class Mundo
-{
-public:
-    Mundo();
 };
 
 #endif // MUNDO_H

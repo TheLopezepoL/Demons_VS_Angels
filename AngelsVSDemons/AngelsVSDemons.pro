@@ -16,6 +16,10 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    abb.cpp \
+    angel.cpp \
+    demon.cpp \
+    generator.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,6 +29,10 @@ SOURCES += \
     world.cpp
 
 HEADERS += \
+    abb.h \
+    angel.h \
+    demon.h \
+    generator.h \
     launcher.h \
     mainwindow.h \
     peopleList.h \
