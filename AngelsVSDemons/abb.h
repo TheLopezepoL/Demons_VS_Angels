@@ -1,21 +1,26 @@
 #ifndef ABB_H
 #define ABB_H
 //PREGUNTAR FISH TEMPLATE PARA HACER UN SOLO ABB
+template <typename T>
 struct NodeABB{
-  NodeABB *leftSon,*rightSon;
+  NodeABB<T> *leftSon,*rightSon;
+  T *data;
   //Attribute
-  NodeABB(){
+  NodeABB(T * data){
       leftSon = rightSon = nullptr;
+      this->data = data;
   }
 };
 
-
+template <typename T>
 struct ABB{
-    NodeABB *root;
+    NodeABB<T> *root;
     ABB(){
         root = nullptr;
     }
-    void insertar();
+    void insertar(T *data){
+        root = insertarAux(data,root);
+    };
 
 };
 

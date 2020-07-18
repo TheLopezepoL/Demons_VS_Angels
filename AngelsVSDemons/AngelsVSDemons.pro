@@ -19,6 +19,7 @@ SOURCES += \
     abb.cpp \
     angel.cpp \
     demon.cpp \
+    dlinklist.cpp \
     generator.cpp \
     launcher.cpp \
     main.cpp \
@@ -32,12 +33,11 @@ HEADERS += \
     abb.h \
     angel.h \
     demon.h \
+    dlinklist.h \
     generator.h \
     launcher.h \
     mainwindow.h \
-    peopleList.h \
     person.h \
-    sonsList.h \
     world.h
 
 FORMS += \
