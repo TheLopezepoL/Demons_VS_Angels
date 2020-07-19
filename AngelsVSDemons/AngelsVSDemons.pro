@@ -20,13 +20,12 @@ SOURCES += \
     angel.cpp \
     demon.cpp \
     dlinklist.cpp \
-    generator.cpp \
+    filemanager.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
-    peopleList.cpp \
     person.cpp \
-    sonsList.cpp \
+    structcreator.cpp \
     world.cpp
 
 HEADERS += \
@@ -34,10 +33,11 @@ HEADERS += \
     angel.h \
     demon.h \
     dlinklist.h \
-    generator.h \
+    filemanager.h \
     launcher.h \
     mainwindow.h \
     person.h \
+    structcreator.h \
     world.h
 
 FORMS += \

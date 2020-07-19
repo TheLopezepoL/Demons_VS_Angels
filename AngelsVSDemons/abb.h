@@ -1,26 +1,36 @@
 #ifndef ABB_H
 #define ABB_H
-//PREGUNTAR FISH TEMPLATE PARA HACER UN SOLO ABB
-template <typename T>
+#include "person.h"
+#include <QDebug>
 struct NodeABB{
-  NodeABB<T> *leftSon,*rightSon;
-  T *data;
-  //Attribute
-  NodeABB(T * data){
+  //Attr.
+  NodeABB *leftSon,*rightSon;
+  Person* person;
+  //Constr.
+  NodeABB(Person* person){
       leftSon = rightSon = nullptr;
-      this->data = data;
+      this->person = person;
   }
 };
 
-template <typename T>
 struct ABB{
-    NodeABB<T> *root;
+    //Attr.
+    NodeABB *root;
+    //Constr.
     ABB(){
         root = nullptr;
     }
-    void insertar(T *data){
-        root = insertarAux(data,root);
-    };
+
+    //Methods
+    void insertar(Person*);
+    NodeABB *insertarAux(Person* person, NodeABB *node);
+    void inOrden(NodeABB *node);
+    void preOrden(NodeABB *node);
+    void posOrden(NodeABB *node);
+    int nodeCounter(NodeABB *node);
+    NodeABB *search(int valor , NodeABB *node);
+
+
 
 };
 

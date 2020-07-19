@@ -52,15 +52,27 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = ../AngelsVSDemons/main.cpp \
+SOURCES       = ../AngelsVSDemons/abb.cpp \
+		../AngelsVSDemons/angel.cpp \
+		../AngelsVSDemons/demon.cpp \
+		../AngelsVSDemons/dlinklist.cpp \
+		../AngelsVSDemons/filemanager.cpp \
+		../AngelsVSDemons/launcher.cpp \
+		../AngelsVSDemons/main.cpp \
 		../AngelsVSDemons/mainwindow.cpp \
-		../AngelsVSDemons/peopleList.cpp \
 		../AngelsVSDemons/person.cpp \
+		../AngelsVSDemons/structcreator.cpp \
 		../AngelsVSDemons/world.cpp moc_mainwindow.cpp
-OBJECTS       = main.o \
+OBJECTS       = abb.o \
+		angel.o \
+		demon.o \
+		dlinklist.o \
+		filemanager.o \
+		launcher.o \
+		main.o \
 		mainwindow.o \
-		peopleList.o \
 		person.o \
+		structcreator.o \
 		world.o \
 		moc_mainwindow.o
 DIST          = ../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
@@ -253,6 +265,7 @@ DIST          = ../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
+		../AngelsVSDemons/.qmake.stash \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -273,13 +286,25 @@ DIST          = ../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/exceptions.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/yacc.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/lex.prf \
-		../AngelsVSDemons/AngelsVSDemons.pro ../AngelsVSDemons/mainwindow.h \
-		../AngelsVSDemons/peopleList.h \
+		../AngelsVSDemons/AngelsVSDemons.pro ../AngelsVSDemons/abb.h \
+		../AngelsVSDemons/angel.h \
+		../AngelsVSDemons/demon.h \
+		../AngelsVSDemons/dlinklist.h \
+		../AngelsVSDemons/filemanager.h \
+		../AngelsVSDemons/launcher.h \
+		../AngelsVSDemons/mainwindow.h \
 		../AngelsVSDemons/person.h \
-		../AngelsVSDemons/world.h ../AngelsVSDemons/main.cpp \
+		../AngelsVSDemons/structcreator.h \
+		../AngelsVSDemons/world.h ../AngelsVSDemons/abb.cpp \
+		../AngelsVSDemons/angel.cpp \
+		../AngelsVSDemons/demon.cpp \
+		../AngelsVSDemons/dlinklist.cpp \
+		../AngelsVSDemons/filemanager.cpp \
+		../AngelsVSDemons/launcher.cpp \
+		../AngelsVSDemons/main.cpp \
 		../AngelsVSDemons/mainwindow.cpp \
-		../AngelsVSDemons/peopleList.cpp \
 		../AngelsVSDemons/person.cpp \
+		../AngelsVSDemons/structcreator.cpp \
 		../AngelsVSDemons/world.cpp
 QMAKE_TARGET  = AngelsVSDemons
 DESTDIR       = 
@@ -482,6 +507,7 @@ Makefile: ../AngelsVSDemons/AngelsVSDemons.pro ../../../../Qt/5.15.0/gcc_64/mksp
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -694,6 +720,7 @@ Makefile: ../AngelsVSDemons/AngelsVSDemons.pro ../../../../Qt/5.15.0/gcc_64/mksp
 ../../../../Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 ../../../../Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -730,8 +757,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../AngelsVSDemons/mainwindow.h ../AngelsVSDemons/peopleList.h ../AngelsVSDemons/person.h ../AngelsVSDemons/world.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/peopleList.cpp ../AngelsVSDemons/person.cpp ../AngelsVSDemons/world.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../AngelsVSDemons/abb.h ../AngelsVSDemons/angel.h ../AngelsVSDemons/demon.h ../AngelsVSDemons/dlinklist.h ../AngelsVSDemons/filemanager.h ../AngelsVSDemons/launcher.h ../AngelsVSDemons/mainwindow.h ../AngelsVSDemons/person.h ../AngelsVSDemons/structcreator.h ../AngelsVSDemons/world.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../AngelsVSDemons/abb.cpp ../AngelsVSDemons/angel.cpp ../AngelsVSDemons/demon.cpp ../AngelsVSDemons/dlinklist.cpp ../AngelsVSDemons/filemanager.cpp ../AngelsVSDemons/launcher.cpp ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/person.cpp ../AngelsVSDemons/structcreator.cpp ../AngelsVSDemons/world.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../AngelsVSDemons/mainwindow.ui $(DISTDIR)/
 
 
@@ -899,6 +926,164 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 
 ####### Compile
 
+abb.o: ../AngelsVSDemons/abb.cpp ../AngelsVSDemons/abb.h \
+		../AngelsVSDemons/person.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o abb.o ../AngelsVSDemons/abb.cpp
+
+angel.o: ../AngelsVSDemons/angel.cpp ../AngelsVSDemons/angel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o angel.o ../AngelsVSDemons/angel.cpp
+
+demon.o: ../AngelsVSDemons/demon.cpp ../AngelsVSDemons/demon.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o demon.o ../AngelsVSDemons/demon.cpp
+
+dlinklist.o: ../AngelsVSDemons/dlinklist.cpp ../AngelsVSDemons/dlinklist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dlinklist.o ../AngelsVSDemons/dlinklist.cpp
+
+filemanager.o: ../AngelsVSDemons/filemanager.cpp ../AngelsVSDemons/filemanager.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filemanager.o ../AngelsVSDemons/filemanager.cpp
+
+launcher.o: ../AngelsVSDemons/launcher.cpp ../AngelsVSDemons/launcher.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o launcher.o ../AngelsVSDemons/launcher.cpp
+
 main.o: ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1012,7 +1197,19 @@ main.o: ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h
+		../../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../AngelsVSDemons/abb.h \
+		../AngelsVSDemons/person.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		../AngelsVSDemons/filemanager.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
+		../AngelsVSDemons/world.h \
+		../AngelsVSDemons/dlinklist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../AngelsVSDemons/main.cpp
 
 mainwindow.o: ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/mainwindow.h \
@@ -1122,11 +1319,24 @@ mainwindow.o: ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/mainwindow.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtGui/qtouchdevice.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
-		ui_mainwindow.h
+		ui_mainwindow.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QVariant \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../AngelsVSDemons/mainwindow.cpp
-
-peopleList.o: ../AngelsVSDemons/peopleList.cpp ../AngelsVSDemons/peopleList.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o peopleList.o ../AngelsVSDemons/peopleList.cpp
 
 person.o: ../AngelsVSDemons/person.cpp ../AngelsVSDemons/person.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
@@ -1163,7 +1373,162 @@ person.o: ../AngelsVSDemons/person.cpp ../AngelsVSDemons/person.h \
 		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o person.o ../AngelsVSDemons/person.cpp
 
-world.o: ../AngelsVSDemons/world.cpp ../AngelsVSDemons/world.h
+structcreator.o: ../AngelsVSDemons/structcreator.cpp ../AngelsVSDemons/structcreator.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QStringList \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../AngelsVSDemons/filemanager.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o structcreator.o ../AngelsVSDemons/structcreator.cpp
+
+world.o: ../AngelsVSDemons/world.cpp ../AngelsVSDemons/world.h \
+		../AngelsVSDemons/abb.h \
+		../AngelsVSDemons/person.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QString \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../AngelsVSDemons/dlinklist.h \
+		../AngelsVSDemons/filemanager.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		../../../../Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o world.o ../AngelsVSDemons/world.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 

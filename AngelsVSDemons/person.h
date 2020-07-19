@@ -1,7 +1,8 @@
 #ifndef PERSONA_H
 #define PERSONA_H
 #include <QString>
-#include "sonsList.h"
+#include <QVector>
+#include "dlinklist.h"
 struct Person{
     //Attributes
     int id;
@@ -10,23 +11,23 @@ struct Person{
     QString country;
     QString beliefs;
     QString career;
+    DLinkList<Person> *sonsList;
     //Bitacora
     QString binacle;
-    //ArrayList sins;
-    //ArrayList goodActions;
-    SonsList *sons;
+    //ArrayList sins
+    QVector <int> sins[7];
+    //ArrayList goodActions
+    QVector <int> goodActions[7];
 
     //Constructor
-    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career, /*ArrayList sins,ArrayList goodActinos,*/SonsList *sons){
+    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career, DLinkList<Person> *sonsList){
         this->id = id;
         this->name = name;
         this->secondName = secondName;
         this->country = country;
         this->beliefs = beliefs;
         this->career = career;
-        this->sons = sons;
-        //this->sins = sin;
-        //this->goodActions = goodActions
+        this->sonsList = sonsList;
     }
 
 

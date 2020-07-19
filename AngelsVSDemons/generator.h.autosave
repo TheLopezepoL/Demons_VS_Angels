@@ -1,10 +1,11 @@
 #ifndef GENERATOR_H
 #define GENERATOR_H
 
-
+#include <QStringList>
+#include <QString>
+#include "filemanager.h"
 struct Generator{
-    //Methods
-
+    Generator()
 };
 
 #endif // GENERATOR_H
