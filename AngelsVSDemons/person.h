@@ -30,6 +30,9 @@ struct Person{
         this->sonsList = sonsList;
     }
 
+    //Methods
+    void imprimir();
+
 
 
 };

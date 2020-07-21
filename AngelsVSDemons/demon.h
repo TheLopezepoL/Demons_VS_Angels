@@ -2,7 +2,7 @@
 #define DEMON_H
 
 
-class Demon{
+struct Demon{
 
 };
 

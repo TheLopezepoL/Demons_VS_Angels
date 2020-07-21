@@ -2,6 +2,7 @@
 #define ABB_H
 #include "person.h"
 #include <QDebug>
+
 struct NodeABB{
   //Attr.
   NodeABB *leftSon,*rightSon;
@@ -20,7 +21,6 @@ struct ABB{
     ABB(){
         root = nullptr;
     }
-
     //Methods
     void insertar(Person*);
     NodeABB *insertarAux(Person* person, NodeABB *node);

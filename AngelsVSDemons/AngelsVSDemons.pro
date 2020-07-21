@@ -21,6 +21,8 @@ SOURCES += \
     demon.cpp \
     dlinklist.cpp \
     filemanager.cpp \
+    heapPerson.cpp \
+    heapfamilies.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -34,6 +36,8 @@ HEADERS += \
     demon.h \
     dlinklist.h \
     filemanager.h \
+    heapPerson.h \
+    heapfamilies.h \
     launcher.h \
     mainwindow.h \
     person.h \
