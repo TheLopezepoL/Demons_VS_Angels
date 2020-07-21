@@ -35,31 +35,6 @@ void ABB::inOrden(NodeABB *node){
         inOrden(node->rightSon);
     }
 };
-/* preOrden
- * E: Un node
- * S: No tiene
- * D: Imprime el arbol (?)
- */
-void ABB::preOrden(NodeABB *node){
-    if (node != nullptr){
-        qDebug() << node->person->id << " ";
-        preOrden(node->leftSon);
-        preOrden(node->rightSon);
-    }
-}
-/* posOrden
- * E: Un node
- * S: No tiene
- * D: Imprime el arbol
- */
-void ABB::posOrden(NodeABB *node){
-     if (node != nullptr){
-         posOrden(node->leftSon);
-         posOrden(node->rightSon);
-         qDebug() << node->person->id << " ";
-     }
-}
-
 /* Node Counter
  * E: Node
  * S: Int

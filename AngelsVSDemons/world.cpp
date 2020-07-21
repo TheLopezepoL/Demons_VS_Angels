@@ -57,11 +57,20 @@ Node<HeapPerson>* World::verifyFamilyExistance(QString name,QString country){
     Node<HeapPerson> *tmp = families->first;
 
     while(tmp != nullptr){
-        if (name == tmp->data->lastName & country == tmp->data->country)
+        if (name == tmp->data->lastName and country == tmp->data->country)
             return tmp;
         else
             tmp = tmp->nxt;
     }
 
     return nullptr;
+}
+/* Retorna la cantidad de personas en el mundo
+ * E: No tiene
+ * S: Un int
+ * D: Devuelve la cantidad de personas que tiene el mundo
+ */
+
+int World::getPopulation(){
+    return population;
 }

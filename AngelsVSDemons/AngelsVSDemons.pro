@@ -23,11 +23,15 @@ SOURCES += \
     filemanager.cpp \
     heapPerson.cpp \
     heapfamilies.cpp \
+    heaven.cpp \
+    hell.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
     person.cpp \
     structcreator.cpp \
+    triarbol.cpp \
+    warzone.cpp \
     world.cpp
 
 HEADERS += \
@@ -38,10 +42,14 @@ HEADERS += \
     filemanager.h \
     heapPerson.h \
     heapfamilies.h \
+    heaven.h \
+    hell.h \
     launcher.h \
     mainwindow.h \
     person.h \
     structcreator.h \
+    triarbol.h \
+    warzone.h \
     world.h
 
 FORMS += \

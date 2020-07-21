@@ -3,7 +3,9 @@
 #include <QString>
 #include <QVector>
 #include "dlinklist.h"
+
 struct Person{
+
     //Attributes
     int id;
     QString name;
@@ -32,6 +34,7 @@ struct Person{
 
     //Methods
     void imprimir();
+
 
 
 

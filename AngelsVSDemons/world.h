@@ -33,8 +33,12 @@ struct World{
     //Methods
     //Creador de listas nombres,apellidos,profesiones,...
     void preStart(QString path);
+    //Creador de Arbol del Mundo
+    void abbCreator(DLinkList<Person> *peopleList);
     //Nacimiento de humanos
     void birth(int quant);
+    //Cantidad de Humanos
+    int getPopulation();
     //Verifica si existe la familia del humano y retorna el nodo al arbol
     Node<HeapPerson>* verifyFamilyExistance(QString country,QString lastName);
     //Genera los pecados

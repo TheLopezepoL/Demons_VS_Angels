@@ -47,12 +47,12 @@ struct DLinkList{
         }
     }
 
-    Node<T>* searchNode(T data);
     /*LENTGH
      * E: No tiene
      * S: Int
      * D: Da la cantidad de elem de la lista
      */
+
     int length(){
         int i = 0;
         Node<T> *tmp = first;
@@ -62,6 +62,12 @@ struct DLinkList{
         }
         return i;
     }
+    /*
+     * (ELIMINAR DATO)
+     * E: Un int
+     * S: Un nodo
+     * D: Elimina un OBJETO en la lista
+     */
 
 };
 
