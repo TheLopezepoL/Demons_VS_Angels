@@ -24,11 +24,9 @@ struct ABB{
     //Methods
     void insertar(Person*);
     NodeABB *insertarAux(Person* person, NodeABB *node);
-    void inOrden(NodeABB *node);
-    void preOrden(NodeABB *node);
-    void posOrden(NodeABB *node);
     int nodeCounter(NodeABB *node);
     NodeABB *search(int valor , NodeABB *node);
+    void posOrden(NodeABB *node);
 
 
 

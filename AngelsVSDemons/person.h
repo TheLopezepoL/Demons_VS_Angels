@@ -4,6 +4,13 @@
 #include <QVector>
 #include "dlinklist.h"
 
+enum State{
+
+    SALVADO,
+    CONDENADO,
+    VIVO
+};
+
 struct Person{
 
     //Attributes
@@ -14,6 +21,8 @@ struct Person{
     QString beliefs;
     QString career;
     DLinkList<Person> *sonsList;
+    //Estado
+    State state;
     //Bitacora
     QString binacle;
     //ArrayList sins
@@ -34,6 +43,7 @@ struct Person{
 
     //Methods
     void imprimir();
+    void changeState(QString state);
 
 
 

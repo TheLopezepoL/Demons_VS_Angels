@@ -23,8 +23,9 @@ QString StructCreator::getRand(QStringList list){
     int n =((randomInit(0,4122001)%list.length()));
     return list.takeAt(n);
 }
-
+//Selecciona un numero random
 int StructCreator::randomInit(int n, int seed){
     std::uniform_int_distribution<int> dist(n,seed);
     return dist(*QRandomGenerator::global());
 }
+

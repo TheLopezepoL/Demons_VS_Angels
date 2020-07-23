@@ -1,17 +1,24 @@
 #ifndef MUNDO_H
 #define MUNDO_H
+#include <QVector>
 #include "abb.h"
 #include "dlinklist.h"
 #include "filemanager.h"
-#include "heapPerson.h"
+#include "hell.h"
+#include "heaven.h"
+#include "humans.h"
 struct World{
     //////////////////////////////////////
     //Attr.
+    //////////////////////////////////////
+    Hell *hell;
+    Heaven *heaven;
     //////////////////////////////////////
     int population;
     //////////////////////////////////////
     //ARRAYS/////////////////////
     //////////////////////////////////////
+    QVector <int> ids;
     QStringList names;
     QStringList secondNames;
     QStringList countries;
@@ -20,8 +27,7 @@ struct World{
     //////////////////////////////////////
     //STRUCTS//////////////////
     //////////////////////////////////////
-    DLinkList<Person> *peopleList;
-    DLinkList<HeapPerson> *families;
+    Humans *peopleList;
     ABB *abb;
     //////////////////////////////////////
     //Constr.
@@ -34,13 +40,11 @@ struct World{
     //Creador de listas nombres,apellidos,profesiones,...
     void preStart(QString path);
     //Creador de Arbol del Mundo
-    void abbCreator(DLinkList<Person> *peopleList);
+    void abbGenerator();
+    void abbGeneratorAux(int cant,int times);
+    int getPowerTwo(int n);
     //Nacimiento de humanos
     void birth(int quant);
-    //Cantidad de Humanos
-    int getPopulation();
-    //Verifica si existe la familia del humano y retorna el nodo al arbol
-    Node<HeapPerson>* verifyFamilyExistance(QString country,QString lastName);
     //Genera los pecados
     void sinGenerator();
     //Genera las buenas acciones
@@ -49,8 +53,11 @@ struct World{
     void sinInfo();
     //Consulta de Buenas Acciones
     void blessInfo();
+    //Verifica y devuelve el ID en el rango dado
+    int getHumanID(int min,int max);
+    //Print Humnas
+    void imprimirHumanos();
     //////////////////////////////////////
-
 
 };
 

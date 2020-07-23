@@ -21,10 +21,9 @@ SOURCES += \
     demon.cpp \
     dlinklist.cpp \
     filemanager.cpp \
-    heapPerson.cpp \
-    heapfamilies.cpp \
     heaven.cpp \
     hell.cpp \
+    humans.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -40,10 +39,9 @@ HEADERS += \
     demon.h \
     dlinklist.h \
     filemanager.h \
-    heapPerson.h \
-    heapfamilies.h \
     heaven.h \
     hell.h \
+    humans.h \
     launcher.h \
     mainwindow.h \
     person.h \

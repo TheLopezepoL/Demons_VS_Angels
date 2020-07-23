@@ -62,12 +62,10 @@ struct DLinkList{
         }
         return i;
     }
-    /*
-     * (ELIMINAR DATO)
-     * E: Un int
-     * S: Un nodo
-     * D: Elimina un OBJETO en la lista
-     */
+
+
+
+
 
 };
 

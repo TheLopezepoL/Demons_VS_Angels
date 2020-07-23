@@ -13,3 +13,15 @@ void Person::imprimir(){
     qDebug() << "Carrera: " << this->career;
     qDebug() << "Creencia: " << this->beliefs;
 }
+
+/*CAMBIAR ESTADO
+ */
+void Person::changeState(QString state){
+
+    if (state == "SALVADO")
+        this->state = SALVADO;
+    else  if (state == "CONDENADO")
+        this->state = CONDENADO;
+    else  if (state == "VIVO")
+        this->state = VIVO;
+}

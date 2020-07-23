@@ -14,7 +14,6 @@ void ABB::insertar(Person* person){
 NodeABB * ABB::insertarAux(Person* person, NodeABB *node){
     if (node == nullptr)
         return new NodeABB(person);
-
     else if (node->person->id < person->id) {
          node->rightSon = insertarAux(person,node->rightSon);
     }
@@ -24,17 +23,6 @@ NodeABB * ABB::insertarAux(Person* person, NodeABB *node){
     return node;
 }
 
-/*  inOrden
- * E: Un node
- * S: No tiene
- * D: Imprime el arbol en orden*/
-void ABB::inOrden(NodeABB *node){
-    if (node != nullptr){
-        inOrden(node->leftSon);
-        qDebug() << node->person->id << " ";
-        inOrden(node->rightSon);
-    }
-};
 /* Node Counter
  * E: Node
  * S: Int
@@ -64,4 +52,16 @@ NodeABB *ABB::search(int valor, NodeABB *node){
     else{
         return search(valor,node->leftSon);
     }
+}
+
+
+/*Imprimir Arbol en POSICION orden*/
+
+void ABB::posOrden(NodeABB *node){
+    posOrden(node->leftSon);
+    posOrden(node->rightSon);
+    qDebug() << "";
+    qDebug() << "Node: " << node->person->id;
+    node->person->imprimir();
+
 }

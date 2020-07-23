@@ -1,7 +1,7 @@
 #ifndef DEMON_H
 #define DEMON_H
 #include <QString>
-#include "heapfamilies.h"
+
 #include "dlinklist.h"
 #include "person.h"
 
@@ -15,7 +15,6 @@ struct Demon{
     //Bitacora Demoniaca
     QString binnacle;
     //ARBOL DE FAMILIAS
-    HeapFamilies heapFamilias;
     //Lista de Humanos tomados del mundo
     DLinkList<Person> humanosTomados;
     //Cantidad de Humanos que el demonio ha recogido
