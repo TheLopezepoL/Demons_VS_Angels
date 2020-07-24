@@ -39,7 +39,7 @@ void World::birth(int quant){
         QString country = StructCreator::getRand(countries);
         QString career = StructCreator::getRand(careers);
         //Crea al nuevo humano
-        Person *nuevo = StructCreator::createPerson(id,name,secondN,country,religion,career,nullptr);
+        Person *nuevo = StructCreator::createPerson(id,name,secondN,country,religion,career);
         //nuevo->imprimir();
         //Lo pega a la lista
         peopleList->insertPos(nuevo);
@@ -142,7 +142,18 @@ void World::setSonsAux(Person *person){
             possibleSon = possibleSon->nxt;
         }
     }
+}
 
+/* SET SONS
+ * E: No tiene
+ * S: No tiene
+ * D: Hace un ciclo para asignar un hijo a la lista de hijos
+ */
 
-
+void World::setSons(){
+    NodeHuman *tmp = peopleList->first;
+    while (tmp != nullptr) {
+        setSonsAux(tmp->person);
+        tmp = tmp->nxt;
+    }
 }

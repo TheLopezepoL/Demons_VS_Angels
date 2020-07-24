@@ -8,8 +8,8 @@
  * D:
  */
 
-Person *StructCreator::createPerson(int id, QString name, QString secondName, QString country, QString beliefs, QString career, DLinkList<Person> *sonsList){
-    Person *nuevo = new Person(id,name, secondName,country, beliefs, career, sonsList);
+Person *StructCreator::createPerson(int id, QString name, QString secondName, QString country, QString beliefs, QString career){
+    Person *nuevo = new Person(id,name, secondName,country, beliefs, career);
     return nuevo;
 }
 

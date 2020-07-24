@@ -20,7 +20,8 @@ struct Person{
     QString country;
     QString beliefs;
     QString career;
-    DLinkList<Person> *sonsList;
+    Person *sons[5];
+    Person *father;
     //Estado
     State state;
     //Bitacora
@@ -31,19 +32,23 @@ struct Person{
     QVector <int> goodActions[7];
 
     //Constructor
-    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career, DLinkList<Person> *sonsList){
+    Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career){
         this->id = id;
         this->name = name;
         this->secondName = secondName;
         this->country = country;
         this->beliefs = beliefs;
         this->career = career;
-        this->sonsList = sonsList;
+        this->father = nullptr;
     }
 
     //Methods
+    void setFather(Person *person);
+    bool hasFather();
     void imprimir();
     void changeState(QString state);
+    void addSon(Person *newSon);
+    void printHijos();
 
 
 

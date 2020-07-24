@@ -43,6 +43,9 @@ struct World{
     void abbGenerator();
     void abbGeneratorAux(int cant,int times);
     int getPowerTwo(int n);
+    //Set Hijos de Humano
+    void setSons();
+    void setSonsAux(Person *person);
     //Nacimiento de humanos
     void birth(int quant);
     //Genera los pecados

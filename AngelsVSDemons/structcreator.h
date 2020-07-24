@@ -10,7 +10,7 @@ struct StructCreator{
     //Methods
     static QString getRand(QStringList list);
     static int randomInit(int n, int seed);
-    static Person *createPerson(int id, QString name, QString secondName, QString country, QString beliefs, QString career, DLinkList<Person> *sonsList);
+    static Person *createPerson(int id, QString name, QString secondName, QString country, QString beliefs, QString career);
     static Node<Person>* checkedNodePos(int id, Node<Person> *first);
 
 };
