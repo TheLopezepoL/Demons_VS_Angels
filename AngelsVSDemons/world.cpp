@@ -10,7 +10,7 @@
  *
  */
 
-void World::preStart(QString path){
+void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hell*/){
     this->names = FileManager::splitFile(FileManager::readFile(path+"/Nombres"));
     this->secondNames = FileManager::splitFile(FileManager::readFile(path+"/Apellidos"));
     this->countries = FileManager::splitFile(FileManager::readFile(path+"/Paises"));
@@ -48,6 +48,7 @@ void World::birth(int quant){
 
     }
     population = quant + population;
+    abbGenerator();
     //imprimirHumanos();
 }
 
@@ -85,10 +86,19 @@ void World::imprimirHumanos(){
  * D: Genera aleatoriamente el ABB para ubicar humanos en la lista de humanos
  */
 void World::abbGenerator(){
+    ABB *nuevo = new ABB();
     int i = getPowerTwo(population*0.01);
+    Person *mid = peopleList->returnHuman(population/2);
+    nuevo->insertar(mid);
+    mid->imprimir();
     while ( i != 0) {
-
+        //qDebug() << i;
+        int random = StructCreator::randomInit(0,population-1);
+        nuevo->insertar(peopleList->returnHuman(random));
+        --i;
     }
+    this->abb = nuevo;
+    abb->posOrden(abb->root,0);
 }
 
 
@@ -102,10 +112,37 @@ int World::getPowerTwo(int n){
     int i = 0;
     while(i < n){
         if (qPow(2,i) > n)
-            return i;
+            return qPow(2,i);
         else if(qPow(2,i) == n)
-            return i;
+            return qPow(2,i);
         ++i;
     }
     return 0;
+}
+
+
+/* Set Sons AUXILIAR
+ * E: Un puntero a persona
+ * S: No tiene
+ * D: Setea la cantidad de hijos de la persona y se los setea
+ */
+
+void World::setSonsAux(Person *person){
+    int i = StructCreator::randomInit(0,5);
+    NodeHuman *possibleSon = peopleList->first;
+    while (i != 0) {
+        Person *son = possibleSon->person;
+        if (possibleSon == nullptr)
+            break;
+        else if (!son->hasFather() and (son->secondName == person->secondName) and (son->country == person->country)) {
+            person->addSon(son);
+        }
+        else{
+            ++i;
+            possibleSon = possibleSon->nxt;
+        }
+    }
+
+
+
 }
