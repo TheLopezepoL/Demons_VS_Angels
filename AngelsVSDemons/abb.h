@@ -26,7 +26,7 @@ struct ABB{
     NodeABB *insertarAux(Person* person, NodeABB *node);
     int nodeCounter(NodeABB *node);
     NodeABB *search(int valor , NodeABB *node);
-    void posOrden(NodeABB *node, int nivel);
+    void posOrden(NodeABB *node);
 
 
 

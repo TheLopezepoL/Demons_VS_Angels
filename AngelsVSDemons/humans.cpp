@@ -47,7 +47,6 @@ Person *Humans::returnHuman(int pos){
         if (i == pos)
             return tmp->person;
         tmp = tmp->nxt;
-        ++i;
     }
     return nullptr;
 }
