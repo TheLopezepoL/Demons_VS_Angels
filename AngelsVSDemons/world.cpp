@@ -177,29 +177,28 @@ void World::setSons(){
  */
 void World::sinGenerator(){
     NodeHuman *tmp = peopleList->first;
-
     while (tmp != nullptr){
-        for (int i = 0; i<8 ; ++i){
+        for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
             tmp->person->addSin(i,random);
+            tmp->person->addSinAUX(i,random);
         }
         tmp = tmp->nxt;
     }
-
 }
 /*SUMA DE BUENAS ACCIONES
- * E:
- * S:
- * D:
+ * E: No tiene
+ * S: No tiene
+ * D: Le suma un random de nuevas acciones a cada humano
  */
 void World::blessGenerator(){
     NodeHuman *tmp = peopleList->first;
     while(tmp != nullptr){
-        for (int i = 0; i<8 ; ++i){
+        for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
             tmp->person->addAction(i,random);
+            tmp->person->addGoodActionAUX(i,random);
         }
         tmp = tmp->nxt;
     }
-
 }

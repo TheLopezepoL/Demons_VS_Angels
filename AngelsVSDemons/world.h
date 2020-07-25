@@ -58,6 +58,8 @@ struct World{
     int getHumanID(int min,int max);
     //Print Humnas
     void imprimirHumanos();
+    //Consultas de pecados por paises
+
     //////////////////////////////////////
 
 };

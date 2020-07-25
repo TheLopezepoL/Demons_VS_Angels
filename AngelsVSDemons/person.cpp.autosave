@@ -144,3 +144,6 @@ void Person::addGoodActionAUX(int aIndex, int cant){
     }
 
 }
+/* 
+ *
+ */

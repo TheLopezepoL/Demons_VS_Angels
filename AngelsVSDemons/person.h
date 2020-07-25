@@ -61,9 +61,14 @@ struct Person{
     void printHijos();
     //ADD SIN
     void addSin(int sinIndex, int cantidad);
-    void addSinAux(DLinkList<Person> *sons,int sinIndex, int cantidad);
     //ADD GOOD ACTION
     void addAction(int sinIndex, int cantidad);
+    //ADD SIN TO SONS
+    void addSinAUX(int sinIndex,int cant);
+    //ADD GOOD ACTION TO SONS
+    void addGoodActionAUX(int sinIndex,int cant);
+    //ADD TO NIETOS
+    void addNietos();
 
 
 

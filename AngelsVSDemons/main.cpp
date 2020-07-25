@@ -9,10 +9,13 @@ int main(int argc, char *argv[])
 {
     World *mundo = new World();
     mundo->preStart("/home/rev/Documents/GitHub/Demons_VS_Angels");
-    mundo->birth(10000);
-    mundo->sinGenerator();
+    mundo->birth(10);
+    //mundo->blessGenerator();
+
+    mundo->peopleList->first->person->addSinAUX(0,100);
+    mundo->peopleList->first->person->addAction(0,100);
     mundo->imprimirHumanos();
-    //qDebug() << mundo->getPowerTwo(10);
+
     QApplication a(argc, argv);
     MainWindow w;
     w.show();

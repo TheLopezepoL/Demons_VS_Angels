@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     abb.cpp \
     angel.cpp \
+    continent.cpp \
     demon.cpp \
     dlinklist.cpp \
     filemanager.cpp \
@@ -36,6 +37,7 @@ SOURCES += \
 HEADERS += \
     abb.h \
     angel.h \
+    continent.h \
     demon.h \
     dlinklist.h \
     filemanager.h \
