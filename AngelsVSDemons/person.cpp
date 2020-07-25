@@ -144,3 +144,8 @@ void Person::addGoodActionAUX(int aIndex, int cant){
     }
 
 }
+/* Suma pecado a los nietos
+ * E:
+ * S:
+ * D:
+ */
