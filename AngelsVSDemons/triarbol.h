@@ -4,12 +4,15 @@
 struct NodeT{
     //Attr.
     Angel *angel;
-    NodeT *first,*second,*third;
+    NodeT *first;
+    NodeT *second;
+    NodeT *third;
     //Cosntr.
     NodeT(Angel *angel){
         this->angel = angel;
         first = second = third = nullptr;
     }
+
 };
 //Arbol 3-ario del Cielo
 struct TriArbol{
@@ -19,6 +22,10 @@ struct TriArbol{
     TriArbol(){
         root = nullptr;
     }
+    //Methods
+    void insertar(Angel *angel);
+    NodeT *insertarAux(Angel *angel,NodeT *node);
+    void addAngels(NodeT *node,int i);
 };
 
 #endif // TRIARBOL_H

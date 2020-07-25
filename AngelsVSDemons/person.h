@@ -27,9 +27,9 @@ struct Person{
     //Bitacora
     QString binacle;
     //ArrayList sins
-    QVector <int> sins[7];
+    int sins[7] = {0,0,0,0,0,0,0};
     //ArrayList goodActions
-    QVector <int> goodActions[7];
+    int goodActions[7] = {0,0,0,0,0,0,0};
 
     //Constructor
     Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career){
@@ -44,12 +44,26 @@ struct Person{
     }
 
     //Methods
+    //Imprimir buenas acciones
+    void printActions();
+    //Imprimir pecados
+    void printSins();
+    //IGUALA EL PADRE
     void setFather(Person *person);
+    //SI TIENE PADRE O NO
     bool hasFather();
     void imprimir();
+    //CAMBIA ESTADO (CONDENADO,VIVO,SALVADO)
     void changeState(QString state);
+    //AGREGA HIJO
     void addSon(Person *newSon);
+    //IMPRIMIR HIJOS
     void printHijos();
+    //ADD SIN
+    void addSin(int sinIndex, int cantidad);
+    void addSinAux(DLinkList<Person> *sons,int sinIndex, int cantidad);
+    //ADD GOOD ACTION
+    void addAction(int sinIndex, int cantidad);
 
 
 

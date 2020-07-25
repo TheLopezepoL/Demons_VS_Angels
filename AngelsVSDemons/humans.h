@@ -28,6 +28,7 @@ struct Humans{
     int length();
     void insertPos(Person *person);
     Person *returnHuman(int pos);
+
     
 };
 

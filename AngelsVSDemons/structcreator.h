@@ -5,13 +5,19 @@
 #include <QString>
 #include "filemanager.h"
 #include "person.h"
+#include "angel.h"
 struct StructCreator{
     StructCreator(){}
     //Methods
+    //Selecciona random en lista
     static QString getRand(QStringList list);
+    //Selecciona random entre un intervalo
     static int randomInit(int n, int seed);
+    //Crea una Persona
     static Person *createPerson(int id, QString name, QString secondName, QString country, QString beliefs, QString career);
-    static Node<Person>* checkedNodePos(int id, Node<Person> *first);
+    //Crea un Angel
+    static Angel *createAngel(QString name,int version, int gen);
+    //Crea un Demonio
     // To heapify a subtree rooted with node i which is
     // an index in arr[]. N is size of heap
     static void heapify(Person heap[],int num, int i);

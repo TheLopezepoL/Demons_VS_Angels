@@ -14,8 +14,9 @@ Person *StructCreator::createPerson(int id, QString name, QString secondName, QS
 }
 
 /*  GET RANDOM LIST
- *
- *
+ * E: Una QLista
+ * S: Un QString
+ * D: Selecciona al azar un QString de la Lista
  */
 
 QString StructCreator::getRand(QStringList list){
@@ -29,7 +30,16 @@ int StructCreator::randomInit(int n, int seed){
     return dist(*QRandomGenerator::global());
 }
 
+/* CREA UN ANGEL
+ * E: Atr Angel
+ * S: Un Puntero a Angel
+ * D: Crea un angel con los datos recibidos
+ */
 
+Angel *StructCreator::createAngel(QString name, int version, int gen){
+    Angel *nuevo = new Angel(name,version,gen);
+    return nuevo;
+}
 /*Heapify
  * E:
  * S:

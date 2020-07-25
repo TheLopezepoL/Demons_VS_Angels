@@ -4,8 +4,12 @@
 #include "person.h"
 #include "demon.h"
 #include <QVector>
+#include "humans.h"
+
 
 struct Hell{
+    //Humanos
+    Humans *peopleList;
     //Correo del Infierno
     QString email;
     //Bitacora del Infierno
@@ -17,11 +21,13 @@ struct Hell{
     //Demonios
     QVector<Demon> demons[7];
     //Cosntr.
-    Hell(QString email){
+    Hell(QString email,Humans *peopleList){
         this->email = email;
+        this->peopleList = peopleList;
     };
     //Methods
     void start();
+    void condenacion();
 
 
 };

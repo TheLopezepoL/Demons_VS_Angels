@@ -13,6 +13,8 @@ void Person::imprimir(){
     qDebug() << "Carrera: " << this->career;
     qDebug() << "Creencia: " << this->beliefs;
     qDebug() << "Pais: " << this->country;
+
+
 }
 
 /*CAMBIAR ESTADO
@@ -83,4 +85,46 @@ void Person::printHijos(){
     }
     qDebug() << "--------------------------------------";
 }
+//Imprime los pecados
+void Person::printSins(){
+    qDebug() << " ";
+    qDebug() << "LISTA DE PECADOS";
+    QString sins[7] = {"ORGULLO","ENVIDIA","IRA","PEREZA","CODICIA","GLOTONERIA","LUJURIA"};
+    for (int i = 0; i<7 ; ++i){
+        qDebug() << " ";
+        qDebug() << sins[i] << ": " << this->sins[i];
+    }
+}
+//Imprime los pecados
+void Person::printActions(){
+    qDebug() << " ";
+    qDebug() << "LISTA DE BUENAS ACCIONES";
+    QString goodActions[7] = {"HONRA","AYUDA","FELICIDAD","LABORIOSIDAD","GENEROSIDAD","SATISFACCION","HONESTIDAD"};
+    for (int i = 0; i<7 ; ++i){
+        qDebug() << " ";
+        qDebug() << goodActions[i] << ": " << this->goodActions[i];
+    }
+}
+/* Suma pecados
+ * E: Dos ints
+ * S: No tiene
+ * D: Le suma un pecado al que se encuentre en el index recibido
+ */
+void Person::addSin(int sinIndex, int cantidad){
+    this->sins[sinIndex] = this->sins[sinIndex] + cantidad;
 
+}
+/*Suma buenas acciones
+ * E: Dos ints
+ * S: No tiene
+ * D: Le suma un pecado al que se encuentre en el index recibido
+ */
+void Person::addAction(int sinIndex, int cantidad){
+    this->goodActions[sinIndex] = this->goodActions[sinIndex] + cantidad;
+
+}
+/* Suma pecados a hijos
+ * E: Un puntero a lista de hijos, DOS INTS
+ * S: No tiene
+ * D: Suma los nuevos pecados a los hijos de la persona
+ */

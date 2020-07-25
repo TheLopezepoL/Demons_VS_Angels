@@ -8,6 +8,16 @@ struct Angel{
     int version;
     int gen;
     Person  *humanSaved;
+    QString binnacle;
+    //Cosntr.
+    Angel (QString name,int version, int gen){
+        this->name = name;
+        this->version = version;
+        this->gen = gen;
+        this->humanSaved = nullptr;
+    }
+    //Methods
+    void setHuman(Person *humanSaved);
 
 
 };
