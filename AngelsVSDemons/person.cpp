@@ -12,6 +12,7 @@ void Person::imprimir(){
     qDebug() << "Apellido: " << this->secondName;
     qDebug() << "Carrera: " << this->career;
     qDebug() << "Creencia: " << this->beliefs;
+    qDebug() << "Pais: " << this->country;
 }
 
 /*CAMBIAR ESTADO
@@ -53,23 +54,14 @@ void Person::setFather(Person *person){
 }
 
 
-/* Agregar hijo al array
+/* Agregar hijo a la lista de hijos
  * E: Un puntero a persona
  * S: No tiene
  * D: Agrega un hijo en el array de hijos
  */
 
 void Person::addSon(Person *newSon){
-    
-    for (int i=0; i<6;i++){
-        if (sons[i])
-            continue;
-        else{
-            newSon->father = this;
-            sons[i]=newSon;
-            break;
-        }
-    }
+    this->sons->append(newSon);
 }
 
 /* Imprime hijos
@@ -78,12 +70,17 @@ void Person::addSon(Person *newSon){
  * D: Agrega un hijo en el array de hijos
  */
 void Person::printHijos(){
+    int i = 1;
+    Node<Person> *tmp = sons->first;
     qDebug() << "";
     qDebug() << "------------LISTA DE HIJOS------------";
-    for (int i=0; i<6;i++){
-        qDebug() << "HIJO #" << i+1;
-        this->sons[i]->imprimir();
+    while (tmp != nullptr) {
+        qDebug() << "";
+        qDebug() << "HIJO #" << i;
+        tmp->data->imprimir();
+        tmp = tmp->nxt;
+        qDebug() << "";
     }
-    qDebug() << "";
+    qDebug() << "--------------------------------------";
 }
 

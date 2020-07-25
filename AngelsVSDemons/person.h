@@ -20,7 +20,7 @@ struct Person{
     QString country;
     QString beliefs;
     QString career;
-    Person *sons[5];
+    DLinkList<Person> *sons;
     Person *father;
     //Estado
     State state;
@@ -40,6 +40,7 @@ struct Person{
         this->beliefs = beliefs;
         this->career = career;
         this->father = nullptr;
+        this->sons = new DLinkList<Person>();
     }
 
     //Methods

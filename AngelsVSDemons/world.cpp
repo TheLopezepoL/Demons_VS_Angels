@@ -47,9 +47,13 @@ void World::birth(int quant){
         ++i;
 
     }
+    //Agrega hijos
+    setSons();
     population = quant + population;
+    //Actualiza el arbol
     abbGenerator();
-    //imprimirHumanos();
+    //Imprime Humanos
+    imprimirHumanos();
 }
 
 /* Seleccionar ID de humano
@@ -74,6 +78,7 @@ void World::imprimirHumanos(){
         qDebug() << "";
         //qDebug() << "Humano Numero: " << i;
         tmp->person->imprimir();
+        tmp->person->printHijos();
         qDebug() << "";
         tmp = tmp->nxt;
         ++i;
@@ -90,7 +95,7 @@ void World::abbGenerator(){
     int i = getPowerTwo(population*0.01);
     Person *mid = peopleList->returnHuman(population/2);
     nuevo->insertar(mid);
-    mid->imprimir();
+    //mid->imprimir();
     while ( i != 0) {
         //qDebug() << i;
         int random = StructCreator::randomInit(0,population-1);
@@ -98,7 +103,7 @@ void World::abbGenerator(){
         --i;
     }
     this->abb = nuevo;
-    abb->posOrden(abb->root,0);
+    //abb->posOrden(abb->root,0);
 }
 
 
@@ -134,14 +139,16 @@ void World::setSonsAux(Person *person){
         Person *son = possibleSon->person;
         if (possibleSon == nullptr)
             break;
-        else if (!son->hasFather() and (son->secondName == person->secondName) and (son->country == person->country)) {
+        else if (!son->hasFather() and (son->secondName == person->secondName) and (son->country == person->country) and (son->id != person->id)) {
             person->addSon(son);
         }
-        else{
-            ++i;
-            possibleSon = possibleSon->nxt;
-        }
+
+        --i;
+        possibleSon = possibleSon->nxt;
+
     }
+    //person->imprimir();
+    //person->printHijos();
 }
 
 /* SET SONS
@@ -153,7 +160,10 @@ void World::setSonsAux(Person *person){
 void World::setSons(){
     NodeHuman *tmp = peopleList->first;
     while (tmp != nullptr) {
-        setSonsAux(tmp->person);
+        //tmp->person->imprimir();
+        if (tmp->person->sons->isEmpty()){
+            setSonsAux(tmp->person);
+        }
         tmp = tmp->nxt;
     }
 }
