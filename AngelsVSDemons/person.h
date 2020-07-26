@@ -15,6 +15,7 @@ struct Person{
 
     //Attributes
     int id;
+
     QString name;
     QString secondName;
     QString country;
