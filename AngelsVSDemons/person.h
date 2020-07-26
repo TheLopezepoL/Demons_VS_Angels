@@ -66,9 +66,9 @@ struct Person{
     //ADD SIN TO SONS
     void addSinAUX(int sinIndex,int cant);
     //ADD GOOD ACTION TO SONS
-    void addGoodActionAUX(int sinIndex,int cant);
+    void addGoodActionAUX(int aIndex,int cant);
     //ADD TO NIETOS
-    void addNietos();
+    void addNietos(int index,int cant,bool type);
 
 
 

@@ -126,6 +126,7 @@ void Person::addSinAUX(int sinIndex,int cant){
     Node<Person> *son = this->sons->first;
     while (son != nullptr){
         son->data->addSin(sinIndex,res);
+        son->data->addNietos(sinIndex,res,false);
         son = son->nxt;
     }
 
@@ -140,12 +141,29 @@ void Person::addGoodActionAUX(int aIndex, int cant){
     Node<Person> *son = this->sons->first;
     while (son != nullptr){
         son->data->addAction(aIndex,res);
+        son->data->addNietos(aIndex,res,true);
         son = son->nxt;
     }
 
 }
 /* Suma pecado a los nietos
- * E:
- * S:
- * D:
+ * E: Dos ints, boolean
+ * S: No tiene
+ * D: Verifica que a que se le tiene que sumar
  */
+void Person::addNietos(int index, int cant, bool type){
+    Node<Person> *nieto = this->sons->first;
+    int res = cant/2;
+    if (type){
+        while (nieto != nullptr){
+            nieto->data->addAction(index,res);
+            nieto = nieto->nxt;
+        }
+    }
+    else if (!type){
+        while (nieto != nullptr){
+            nieto->data->addSin(index,res);
+            nieto = nieto->nxt;
+        }
+    }
+}
