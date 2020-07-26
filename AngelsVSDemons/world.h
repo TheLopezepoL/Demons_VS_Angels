@@ -59,7 +59,10 @@ struct World{
     //Print Humnas
     void imprimirHumanos();
     //Consultas de pecados por paises
-
+    void consultHuman(int id);
+    //Top de 10 paises mas pecadores
+    //Top de 5 paises menos pecadores
+    //Mapa de Continentes
     //////////////////////////////////////
 
 };

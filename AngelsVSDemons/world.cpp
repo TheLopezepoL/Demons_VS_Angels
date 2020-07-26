@@ -158,7 +158,6 @@ void World::setSonsAux(Person *person){
  * S: No tiene
  * D: Hace un ciclo para asignar un hijo a la lista de hijos
  */
-
 void World::setSons(){
     NodeHuman *tmp = peopleList->first;
     while (tmp != nullptr) {
@@ -202,3 +201,8 @@ void World::blessGenerator(){
         tmp = tmp->nxt;
     }
 }
+/* CONSULTA EL ID DE LA PERSONA, E IMPRIME LA INFORMACION DE LA FAMILIA
+ * E: Un int (id)
+ * S: No tiene
+ * D: Recibe un id y despliega toda la info de los pecados de toda la familia del id.
+ */

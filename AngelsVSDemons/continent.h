@@ -16,6 +16,7 @@ struct Continent{
     //Methods
 
 
+
 };
 
 #endif // CONTINENT_H

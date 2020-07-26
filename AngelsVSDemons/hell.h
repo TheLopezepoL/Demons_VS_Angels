@@ -15,7 +15,7 @@ struct Hell{
     //Bitacora del Infierno
     QString binnacle;
     //Lista de Humanos tomados del mundo
-    DLinkList<Person> humanosTomados;
+    DLinkList<Person> *humanosTomados;
     //Cantidad de Humanos
     int quant;
     //Demonios
