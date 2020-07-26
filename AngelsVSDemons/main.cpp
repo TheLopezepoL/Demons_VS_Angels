@@ -8,11 +8,17 @@
 int main(int argc, char *argv[])
 {
     World *mundo = new World();
-    mundo->preStart("/home/rev/Documents/GitHub/Demons_VS_Angels");
+    //"/home/rev/Documents/GitHub/Demons_VS_Angels"
+    mundo->preStart("/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels");
+    mundo->birth(10000);
+    mundo->sinGenerator();
+    mundo->blessGenerator();
+    mundo->imprimirHumanos();
+    /*
     Person *n = new Person(1,"Marco","Reveiz","Costa Rica","Catolico","Programador");
     Person *n1 = new Person(2,"Margarita","Reveiz","Costa Rica","Catolico","Programador");
-    Person *n2 = new Person(3,"Ana","Reveiz","Costa Rica","Catolico","Programador");
-    Person *n3 = new Person(4,"Paula","Reveiz","Costa Rica","Catolico","Programador");
+    Person *n2 = new Person(3,"Mariana","Reveiz","Costa Rica","Catolico","Programador");
+    Person *n3 = new Person(4,"Lola","Reveiz","Costa Rica","Catolico","Programador");
     Person *n4 = new Person(5,"Fish","Reveiz","Costa Rica","Catolico","Programador");
     n->addSon(n1);
     n->addSon(n2);
@@ -28,7 +34,7 @@ int main(int argc, char *argv[])
     mundo->sinGenerator();
     mundo->imprimirHumanos();
 
-
+*/
 
     QApplication a(argc, argv);
     MainWindow w;

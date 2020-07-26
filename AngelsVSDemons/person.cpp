@@ -77,6 +77,7 @@ void Person::printHijos(){
         tmp->data->imprimir();
         tmp = tmp->nxt;
         qDebug() << "";
+        ++i;
     }
     qDebug() << "--------------------------------------";
 }
@@ -167,3 +168,27 @@ void Person::addNietos(int index, int cant, bool type){
         }
     }
 }
+
+/*  VERIFY SON
+ * E: Un puntero a persona
+ * S: Un booleano
+ * D: Checkea si la persona recibida esta en la lista de hijos
+ */
+bool Person::verifySon(Person *person){
+    Node<Person> *tmp = this->sons->first;
+    while( tmp != nullptr){
+        if (tmp->data == person)
+            return true;
+        tmp = tmp->nxt;
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+

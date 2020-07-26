@@ -136,18 +136,20 @@ int World::getPowerTwo(int n){
 
 void World::setSonsAux(Person *person){
     int i = StructCreator::randomInit(0,5);
+    //qDebug() << i;
     NodeHuman *possibleSon = peopleList->first;
+
     while (i != 0) {
-        Person *son = possibleSon->person;
         if (possibleSon == nullptr)
             break;
-        else if (!son->hasFather() and (son->secondName == person->secondName) and (son->country == person->country) and (son->id != person->id)) {
-            person->addSon(son);
-        }
-
-        --i;
-        possibleSon = possibleSon->nxt;
-
+        else{
+            Person *son = possibleSon->person;
+            if ( !son->hasFather() and !son->verifySon(person) and(son->secondName == person->secondName) and (son->country == person->country) and (son->id != person->id)) {
+                person->addSon(son);
+                --i;
+                }
+            possibleSon = possibleSon->nxt;
+            }
     }
     //person->imprimir();
     //person->printHijos();
@@ -196,7 +198,7 @@ void World::blessGenerator(){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
             tmp->person->addAction(i,random);
-            tmp->person->addGoodActionAUX(i,random);
+            //tmp->person->addGoodActionAUX(i,random);
         }
         tmp = tmp->nxt;
     }

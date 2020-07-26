@@ -70,7 +70,8 @@ struct Person{
     void addGoodActionAUX(int aIndex,int cant);
     //ADD TO NIETOS
     void addNietos(int index,int cant,bool type);
-
+    //VERIFY IF SON IS IN LIST
+    bool verifySon(Person *person);
 
 
 
