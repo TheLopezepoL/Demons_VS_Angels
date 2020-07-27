@@ -9,11 +9,13 @@ int main(int argc, char *argv[])
 {
     World *mundo = new World();
     //"/home/rev/Documents/GitHub/Demons_VS_Angels"
+    /*
     mundo->preStart("/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels");
     mundo->birth(10000);
     mundo->sinGenerator();
     mundo->blessGenerator();
     mundo->imprimirHumanos();
+    */
     /*
     Person *n = new Person(1,"Marco","Reveiz","Costa Rica","Catolico","Programador");
     Person *n1 = new Person(2,"Margarita","Reveiz","Costa Rica","Catolico","Programador");
@@ -36,8 +38,33 @@ int main(int argc, char *argv[])
 
 */
 
-    QApplication a(argc, argv);
+    /*QApplication a(argc, argv);
     MainWindow w;
     w.show();
-    return a.exec();
+    return a.exec();*/
+
+    Person **array;
+    Person *newArray[] = {new Person(2, "Juanes", "A.", "Alemania", "Nada", "Musico"), new Person(8, "Sebas", "Fish", "CR", "Diosito", "Dios"), new Person(0, "A", "B", "C", "D", "E"), new Person(11, "Marco", "R.", "CR", "Pasta", "Ing"), new Person(9, "Z", "X", "C", "V", "B")};
+    array = newArray;
+    for(int i=0; i<5; i++){
+        if (array[i] != nullptr)
+            array[i]->imprimir();
+        else
+            qDebug() << "Nel";
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
