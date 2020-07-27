@@ -33,6 +33,19 @@ struct Person{
     int goodActions[7] = {0,0,0,0,0,0,0};
 
     //Constructor
+    Person(){
+        id = 0;
+        name = "";
+        secondName = "";
+        country = "";
+        beliefs = "";
+        career = "";
+        sons = new DLinkList<Person>();
+        father = nullptr;
+        state = VIVO;
+        binacle = "";
+    }
+
     Person(int id, QString name, QString secondName, QString country, QString beliefs, QString career){
         this->id = id;
         this->name = name;
@@ -72,6 +85,10 @@ struct Person{
     void addNietos(int index,int cant,bool type);
     //VERIFY IF SON IS IN LIST
     bool verifySon(Person *person);
+    //CALCULA EL NUMERO DE PECADOS DE 1 SOLO PECADO
+    int totalSins(int sin);
+    //CALCULA EL TOTAL DE PECADOS
+    int totalSins();
 
 
 

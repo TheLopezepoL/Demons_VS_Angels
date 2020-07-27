@@ -1,6 +1,7 @@
 #ifndef DLINKLIST_H
 #define DLINKLIST_H
 
+
 //TEMPLATE DE NODO
 template <typename T>
 struct Node{
@@ -61,6 +62,23 @@ struct DLinkList{
             tmp = tmp->nxt;
         }
         return i;
+    }
+
+    T* erradicate(T* data){
+        Node<T>* ptr = this->first;
+        while(ptr != nullptr){
+            if(ptr->data == data){
+                if (ptr->prv != nullptr)
+                    ptr->prv->nxt = ptr->nxt;
+                if (ptr->nxt != nullptr)
+                    ptr->nxt->prv = ptr->prv;
+                ptr->nxt = nullptr;
+                ptr->prv = nullptr;
+                return ptr->data;
+            }
+            ptr = ptr->nxt;
+        }
+        return nullptr;
     }
 
 
