@@ -19,6 +19,7 @@ SOURCES += \
     abb.cpp \
     angel.cpp \
     continent.cpp \
+    counter.cpp \
     demon.cpp \
     dlinklist.cpp \
     filemanager.cpp \
@@ -37,7 +38,7 @@ SOURCES += \
 HEADERS += \
     abb.h \
     angel.h \
-    continent.h \
+    counter.h \
     demon.h \
     dlinklist.h \
     filemanager.h \

@@ -17,12 +17,17 @@ struct NodeT{
 //Arbol 3-ario del Cielo
 struct TriArbol{
     //Attr.
-    NodeT *root;
+    NodeT *god;
+    DLinkList<Angel> *listaNodes;
     //Constr.
     TriArbol(){
-        root = nullptr;
+        Angel *god = new Angel("GOD",0,0);
+        this->god = new NodeT(god);
+        setGods();
+
     }
     //Methods
+    void setGods();
     void insertar(Angel *angel);
     NodeT *insertarAux(Angel *angel,NodeT *node);
     void addAngels(NodeT *node,int i);

@@ -1,5 +1,17 @@
 #include "triarbol.h"
-
+/* SET GODS
+ * E:
+ * S:
+ * D:
+ */
+void TriArbol::setGods(){
+    Angel *serufines = new Angel("SERUFINES",0,0);
+    Angel *querabines = new Angel("QUERABINES",0,0);
+    Angel *tronos = new Angel("TRONOS",0,0);
+    this->god->first = new NodeT(serufines);
+    this->god->second = new NodeT(querabines);
+    this->god->third = new NodeT(tronos);
+}
 /* INSERTAR
  * E: Un puntero a angel
  * S: No tiene
@@ -19,10 +31,7 @@ void TriArbol::insertar(Angel *angel){
 NodeT *TriArbol::insertarAux(Angel *angel, NodeT *node){
     if (node == nullptr)
         return new NodeT(angel);
-    else{
 
-
-    }
 
 }
 
