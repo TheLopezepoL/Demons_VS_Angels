@@ -184,6 +184,25 @@ bool Person::verifySon(Person *person){
     return false;
 }
 
+//SI DA POSITVO ES BONDADOSO, NEGATIVO ES PECADOR
+//-97 en IRA/CALMA ES PECADOR
+int Person::totalSins(int sin){
+    if (sin > 6)
+        sin = 6;
+    if (sin < 0)
+        sin = 0;
+    return this->goodActions[sin] - this->sins[sin];
+}
+
+int Person::totalSins(){
+    int cont = 0;
+    for (int i = 0; i < 7; i++)
+        cont += this->totalSins(i);
+    return cont;
+}
+
+
+
 
 
 

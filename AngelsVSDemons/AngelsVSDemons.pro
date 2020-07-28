@@ -21,8 +21,11 @@ SOURCES += \
     continent.cpp \
     counter.cpp \
     demon.cpp \
+    demonicheap.cpp \
     dlinklist.cpp \
+    family.cpp \
     filemanager.cpp \
+    heap.cpp \
     heaven.cpp \
     hell.cpp \
     humans.cpp \
@@ -40,8 +43,11 @@ HEADERS += \
     angel.h \
     counter.h \
     demon.h \
+    demonicheap.h \
     dlinklist.h \
+    family.h \
     filemanager.h \
+    heap.h \
     heaven.h \
     hell.h \
     humans.h \
