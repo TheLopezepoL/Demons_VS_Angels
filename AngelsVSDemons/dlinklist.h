@@ -9,6 +9,10 @@ struct Node{
     Node<T> *nxt,*prv;
     T*data;
     //Constr.
+    Node<T>(){
+        this->nxt = this->prv = nullptr;
+        this->data = nullptr;
+    }
     Node<T>(T* data){
         this->nxt = nullptr;
         this->prv = nullptr;

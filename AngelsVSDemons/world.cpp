@@ -16,7 +16,11 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
     this->countries = FileManager::splitFile(FileManager::readFile(path+"/Paises"));
     this->religions = FileManager::splitFile(FileManager::readFile(path+"/Creencias"));
     this->careers = FileManager::splitFile(FileManager::readFile(path+"/Profesiones"));
+    this->continents = FileManager::splitFile(FileManager::readFile(path+"/Continentes"));
     this->peopleList = new Humans();
+    this->paises = new DLinkList<Counter>();
+    this->paisesGA = new DLinkList<Counter>();
+    countryList();
 }
 
 /*  ALGORTIMO DE NACIMIENTO PRIMARY
@@ -183,9 +187,11 @@ void World::sinGenerator(){
             int random = StructCreator::randomInit(0,100);
             tmp->person->addSin(i,random);
             tmp->person->addSinAUX(i,random);
+            this->addCountrySins(random,tmp->person->country);
         }
         tmp = tmp->nxt;
     }
+
 }
 /*SUMA DE BUENAS ACCIONES
  * E: No tiene
@@ -198,13 +204,229 @@ void World::blessGenerator(){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
             tmp->person->addAction(i,random);
-            //tmp->person->addGoodActionAUX(i,random);
+            this->addCountryGA(random,tmp->person->country);
         }
         tmp = tmp->nxt;
     }
 }
-/* CONSULTA EL ID DE LA PERSONA, E IMPRIME LA INFORMACION DE LA FAMILIA
+
+/* SUMA A LOS PAISES LAS BUENAS ACCIONES
  * E: Un int (id)
  * S: No tiene
  * D: Recibe un id y despliega toda la info de los pecados de toda la familia del id.
  */
+void World::addCountryGA(int cant, QString name){
+    Node<Counter> *tmp = paisesGA->first;
+
+    while (tmp != nullptr){
+        if (tmp->data->name == name){
+            tmp->data->cant = tmp->data->cant + cant;
+        }
+        tmp = tmp->nxt;
+    }
+}
+
+/* Crea lista de Continentes
+ * E: No tiene
+ * S: No tiene
+ * D: Crea la lista de paises con el continente asignado
+ */
+
+void World::countryList(){
+    int counter = 0;
+    for (int i = 0 ; i < 5 ; ++i){
+        for (int j = counter ; j < counter+5 ; ++j){
+            //qDebug () << countries[j] << continents[i];
+            Counter *nuevo = new Counter(countries[j],continents[i],0);
+            Counter *nuevoGA = new Counter(countries[j],continents[i],0);
+            paises->append(nuevo);
+            paisesGA->append(nuevoGA);
+        }
+        counter = counter + 5;
+    }
+}
+
+//IMPRIME LISTA DE PAISES
+void World::printCountryListSins(){
+
+    Node<Counter> *tmp = paises->first;
+
+    while (tmp != nullptr){
+        qDebug() << "";
+        qDebug() << "Pais: " << tmp->data->name;
+        qDebug() << "Continente: " << tmp->data->continent;
+        qDebug() << "Cantidad Pecadores: " << tmp->data->cant;
+        tmp = tmp->nxt;
+
+
+    }
+}
+
+void World::printCountryListGA(){
+
+    Node<Counter> *tmp = paisesGA->first;
+
+    while (tmp != nullptr){
+        qDebug() << "";
+        qDebug() << "Pais: " << tmp->data->name;
+        qDebug() << "Continente: " << tmp->data->continent;
+        qDebug() << "Cantidad Buenas Acciones: " << tmp->data->cant;
+        tmp = tmp->nxt;
+
+
+    }
+}
+
+/* SORT DE LISTA DE PAISES
+ * E: Un puntero a nodo de pais
+ * S: No tiene
+ * D: Hace el cambio del nodo en la lista
+ */
+//PECADOS
+void World::sortListSins(){
+    Node<Counter> *current = nullptr;
+    Node<Counter> *index = nullptr;
+    Counter *tmp;
+
+    if (paises->first == nullptr)
+        return;
+    for (current = paises->first ; current->nxt != nullptr ; current = current->nxt){
+        for (index = current->nxt ; index != nullptr ; index = index->nxt){
+            if (current->data->cant > index->data->cant){
+                tmp = current->data;
+                current->data = index->data;
+                index->data = tmp;
+            }
+        }
+    }
+
+}
+//BUENAS ACCIONES
+void World::sortListGoodActions(){
+    Node<Counter> *current = nullptr;
+    Node<Counter> *index = nullptr;
+    Counter *tmp;
+
+    if (paises->first == nullptr)
+        return;
+    for (current = paisesGA->first ; current->nxt != nullptr ; current = current->nxt){
+        for (index = current->nxt ; index != nullptr ; index = index->nxt){
+            if (current->data->cant > index->data->cant){
+                tmp = current->data;
+                current->data = index->data;
+                index->data = tmp;
+            }
+        }
+    }
+}
+/* SUMA LOS PECADOS A CADA PAIS
+ * E: Dos strings
+ * S: No tiene
+ * D: Agrega los pecados a los paises de la lista de cada pais
+ */
+void World::addCountrySins(int cant ,QString name){
+    Node<Counter> *tmp = paises->first;
+
+    while (tmp != nullptr){
+        if (tmp->data->name == name){
+            tmp->data->cant = tmp->data->cant + cant;
+        }
+        tmp = tmp->nxt;
+    }
+}
+/* GET TOP 10 DE PAISES MAS PECADORES
+ * E: No tiene
+ * S: Un array con el top 10 de paises
+ * D: Retorna el top 10 de los paises mas pecadores
+ */
+DLinkList<Counter> *World::top10Sins(){
+    DLinkList<Counter> *array = new DLinkList<Counter>();
+    Node<Counter> *tmp = paises->last;
+    int i = 0;
+    while( tmp != nullptr){
+        if (i < 10){
+            array->append(tmp->data);
+        }
+        tmp = tmp->prv;
+        ++i;
+    }
+    printTops(array);
+    return array;
+}
+
+/* GET TOP 10 DE PAISES CON MAS BUENAS ACCIONES
+ * E: No tiene
+ * S: Un array con el top 10 de paises
+ * D: Retorna el top 10 de los paises mas BUENAS ACCIONES
+ */
+DLinkList<Counter> *World::top10GA(){
+    DLinkList<Counter> *array = new DLinkList<Counter>();
+    Node<Counter> *tmp = paisesGA->last;
+    int i = 0;
+    while( tmp != nullptr){
+        if (i < 10){
+            array->append(tmp->data);
+        }
+        tmp = tmp->prv;
+        ++i;
+    }
+    printTops(array);
+    return array;
+}
+/* GET TOP 5 DE PAISES MENOS PECADORES
+ * E: No tiene
+ * S: Un array con el top 5 de paises
+ * D: Retorna el top 5 de los paises MENOS pecadores
+ */
+
+DLinkList<Counter> *World::top5LessSins(){
+    DLinkList<Counter> *array = new DLinkList<Counter>();
+    Node<Counter> *tmp = paises->first;
+    int i = 0;
+    while( tmp != nullptr){
+        if (i < 5){
+            array->append(tmp->data);
+        }
+        tmp = tmp->nxt;
+        ++i;
+    }
+    printTops(array);
+    return array;
+}
+/* GET TOP 5 DE PAISES MENOS BUENAS ACCIONES
+ * E: No tiene
+ * S: Un array con el top 5 de paises
+ * D: Retorna el top 5 de los paises MENOS pecadores
+ */
+
+DLinkList<Counter> *World::top5LessGA(){
+    DLinkList<Counter> *array = new DLinkList<Counter>();
+    Node<Counter> *tmp = paisesGA->first;
+    int i = 0;
+    while( tmp != nullptr){
+        if (i < 5){
+            array->append(tmp->data);
+        }
+        tmp = tmp->nxt;
+        ++i;
+    }
+    printTops(array);
+    return array;
+}
+//IMPRIMIR TOPS
+void World::printTops(DLinkList<Counter> *top){
+
+    Node<Counter> *tmp = top->first;
+    int i = 1;
+    while (tmp != nullptr){
+        qDebug() << "";
+        qDebug() << "#" << i;
+        qDebug() << "Pais: " << tmp->data->name;
+        qDebug() << "Continente: " << tmp->data->continent;
+        qDebug() << "Cantidad Pecadores: " << tmp->data->cant;
+        tmp = tmp->nxt;
+        ++i;
+    }
+
+}
+

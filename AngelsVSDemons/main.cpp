@@ -8,7 +8,11 @@
 int main(int argc, char *argv[])
 {
     World *mundo = new World();
+    //"/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels"
     //"/home/rev/Documents/GitHub/Demons_VS_Angels"
+    mundo->preStart("/home/rev/Documents/GitHub/Demons_VS_Angels");
+    mundo->birth(10000);
+    QApplication a(argc, argv);
     /*
     mundo->preStart("/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels");
     mundo->birth(10000);
