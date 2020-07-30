@@ -8,7 +8,7 @@
 #include "SmtpMime"
 int main(int argc, char *argv[])
 {
-    World *mundo = new World();
+    /*World *mundo = new World();
     //"/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels"
     //"/home/rev/Documents/GitHub/Demons_VS_Angels"
     //QApplication a(argc, argv);
@@ -24,10 +24,15 @@ int main(int argc, char *argv[])
     demon->sendEmail();
 
 
-    /*QApplication a(argc, argv);
+    QApplication a(argc, argv);
     MainWindow w;
     w.show();
     return a.exec();*/
+
+    Person* prueba = new Person();
+    prueba = nullptr;
+    free(prueba);
+
 }
 
 

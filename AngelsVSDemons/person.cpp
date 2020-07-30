@@ -47,7 +47,7 @@ bool Person::hasFather(){
  * D: Setea el el puntero padre a la persona(puntero) recibida
  */
 void Person::setFather(Person *person){
-    if (!this->hasFather(020-05-24 19:57)){
+    if (!this->hasFather()){
         this->father = person;
     }
 }

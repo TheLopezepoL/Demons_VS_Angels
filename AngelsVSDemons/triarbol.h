@@ -1,6 +1,7 @@
 #ifndef TRIARBOL_H
 #define TRIARBOL_H
 #include "angel.h"
+#include "demon.h"
 struct NodeT{
     //Attr.
     Angel *angel;
@@ -31,7 +32,7 @@ struct TriArbol{
     }
     //Methods
     void setGods();
-    void newAngels(int gen);
+    void newAngels(int gen, Demon* hell[7]);
     QString ranName();
     void aOrden(NodeT *node, int nivel);
 

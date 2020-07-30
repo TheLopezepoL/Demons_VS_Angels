@@ -62,6 +62,7 @@ SOURCES       = ../AngelsVSDemons/abb.cpp \
 		../AngelsVSDemons/emailaddress.cpp \
 		../AngelsVSDemons/family.cpp \
 		../AngelsVSDemons/filemanager.cpp \
+		../AngelsVSDemons/hash.cpp \
 		../AngelsVSDemons/heap.cpp \
 		../AngelsVSDemons/heaven.cpp \
 		../AngelsVSDemons/humans.cpp \
@@ -80,6 +81,7 @@ SOURCES       = ../AngelsVSDemons/abb.cpp \
 		../AngelsVSDemons/person.cpp \
 		../AngelsVSDemons/quotedprintable.cpp \
 		../AngelsVSDemons/smtpclient.cpp \
+		../AngelsVSDemons/soul.cpp \
 		../AngelsVSDemons/structcreator.cpp \
 		../AngelsVSDemons/triarbol.cpp \
 		../AngelsVSDemons/warzone.cpp \
@@ -103,6 +105,7 @@ OBJECTS       = abb.o \
 		emailaddress.o \
 		family.o \
 		filemanager.o \
+		hash.o \
 		heap.o \
 		heaven.o \
 		humans.o \
@@ -121,6 +124,7 @@ OBJECTS       = abb.o \
 		person.o \
 		quotedprintable.o \
 		smtpclient.o \
+		soul.o \
 		structcreator.o \
 		triarbol.o \
 		warzone.o \
@@ -291,7 +295,6 @@ DIST          = /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.pr
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
-		../AngelsVSDemons/.qmake.stash \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -323,6 +326,7 @@ DIST          = /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.pr
 		../AngelsVSDemons/emailaddress.h \
 		../AngelsVSDemons/family.h \
 		../AngelsVSDemons/filemanager.h \
+		../AngelsVSDemons/hash.h \
 		../AngelsVSDemons/heap.h \
 		../AngelsVSDemons/heaven.h \
 		../AngelsVSDemons/humans.h \
@@ -341,6 +345,7 @@ DIST          = /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.pr
 		../AngelsVSDemons/quotedprintable.h \
 		../AngelsVSDemons/smtpclient.h \
 		../AngelsVSDemons/smtpexports.h \
+		../AngelsVSDemons/soul.h \
 		../AngelsVSDemons/structcreator.h \
 		../AngelsVSDemons/triarbol.h \
 		../AngelsVSDemons/warzone.h \
@@ -354,6 +359,7 @@ DIST          = /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.pr
 		../AngelsVSDemons/emailaddress.cpp \
 		../AngelsVSDemons/family.cpp \
 		../AngelsVSDemons/filemanager.cpp \
+		../AngelsVSDemons/hash.cpp \
 		../AngelsVSDemons/heap.cpp \
 		../AngelsVSDemons/heaven.cpp \
 		../AngelsVSDemons/humans.cpp \
@@ -372,6 +378,7 @@ DIST          = /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_pre.pr
 		../AngelsVSDemons/person.cpp \
 		../AngelsVSDemons/quotedprintable.cpp \
 		../AngelsVSDemons/smtpclient.cpp \
+		../AngelsVSDemons/soul.cpp \
 		../AngelsVSDemons/structcreator.cpp \
 		../AngelsVSDemons/triarbol.cpp \
 		../AngelsVSDemons/warzone.cpp \
@@ -543,7 +550,6 @@ Makefile: ../AngelsVSDemons/AngelsVSDemons.pro /home/thelopezepol/Qt/5.15.0/gcc_
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -722,7 +728,6 @@ Makefile: ../AngelsVSDemons/AngelsVSDemons.pro /home/thelopezepol/Qt/5.15.0/gcc_
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/qt_config.prf:
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/toolchain.prf:
 /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -759,8 +764,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /home/thelopezepol/Qt/5.15.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../AngelsVSDemons/SmtpMime ../AngelsVSDemons/abb.h ../AngelsVSDemons/angel.h ../AngelsVSDemons/counter.h ../AngelsVSDemons/demon.h ../AngelsVSDemons/demonicheap.h ../AngelsVSDemons/dlinklist.h ../AngelsVSDemons/email.h ../AngelsVSDemons/emailaddress.h ../AngelsVSDemons/family.h ../AngelsVSDemons/filemanager.h ../AngelsVSDemons/heap.h ../AngelsVSDemons/heaven.h ../AngelsVSDemons/humans.h ../AngelsVSDemons/launcher.h ../AngelsVSDemons/mainwindow.h ../AngelsVSDemons/mimeattachment.h ../AngelsVSDemons/mimecontentformatter.h ../AngelsVSDemons/mimefile.h ../AngelsVSDemons/mimehtml.h ../AngelsVSDemons/mimeinlinefile.h ../AngelsVSDemons/mimemessage.h ../AngelsVSDemons/mimemultipart.h ../AngelsVSDemons/mimepart.h ../AngelsVSDemons/mimetext.h ../AngelsVSDemons/person.h ../AngelsVSDemons/quotedprintable.h ../AngelsVSDemons/smtpclient.h ../AngelsVSDemons/smtpexports.h ../AngelsVSDemons/structcreator.h ../AngelsVSDemons/triarbol.h ../AngelsVSDemons/warzone.h ../AngelsVSDemons/world.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../AngelsVSDemons/abb.cpp ../AngelsVSDemons/angel.cpp ../AngelsVSDemons/counter.cpp ../AngelsVSDemons/demon.cpp ../AngelsVSDemons/demonicheap.cpp ../AngelsVSDemons/dlinklist.cpp ../AngelsVSDemons/email.cpp ../AngelsVSDemons/emailaddress.cpp ../AngelsVSDemons/family.cpp ../AngelsVSDemons/filemanager.cpp ../AngelsVSDemons/heap.cpp ../AngelsVSDemons/heaven.cpp ../AngelsVSDemons/humans.cpp ../AngelsVSDemons/launcher.cpp ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/mimeattachment.cpp ../AngelsVSDemons/mimecontentformatter.cpp ../AngelsVSDemons/mimefile.cpp ../AngelsVSDemons/mimehtml.cpp ../AngelsVSDemons/mimeinlinefile.cpp ../AngelsVSDemons/mimemessage.cpp ../AngelsVSDemons/mimemultipart.cpp ../AngelsVSDemons/mimepart.cpp ../AngelsVSDemons/mimetext.cpp ../AngelsVSDemons/person.cpp ../AngelsVSDemons/quotedprintable.cpp ../AngelsVSDemons/smtpclient.cpp ../AngelsVSDemons/structcreator.cpp ../AngelsVSDemons/triarbol.cpp ../AngelsVSDemons/warzone.cpp ../AngelsVSDemons/world.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../AngelsVSDemons/SmtpMime ../AngelsVSDemons/abb.h ../AngelsVSDemons/angel.h ../AngelsVSDemons/counter.h ../AngelsVSDemons/demon.h ../AngelsVSDemons/demonicheap.h ../AngelsVSDemons/dlinklist.h ../AngelsVSDemons/email.h ../AngelsVSDemons/emailaddress.h ../AngelsVSDemons/family.h ../AngelsVSDemons/filemanager.h ../AngelsVSDemons/hash.h ../AngelsVSDemons/heap.h ../AngelsVSDemons/heaven.h ../AngelsVSDemons/humans.h ../AngelsVSDemons/launcher.h ../AngelsVSDemons/mainwindow.h ../AngelsVSDemons/mimeattachment.h ../AngelsVSDemons/mimecontentformatter.h ../AngelsVSDemons/mimefile.h ../AngelsVSDemons/mimehtml.h ../AngelsVSDemons/mimeinlinefile.h ../AngelsVSDemons/mimemessage.h ../AngelsVSDemons/mimemultipart.h ../AngelsVSDemons/mimepart.h ../AngelsVSDemons/mimetext.h ../AngelsVSDemons/person.h ../AngelsVSDemons/quotedprintable.h ../AngelsVSDemons/smtpclient.h ../AngelsVSDemons/smtpexports.h ../AngelsVSDemons/soul.h ../AngelsVSDemons/structcreator.h ../AngelsVSDemons/triarbol.h ../AngelsVSDemons/warzone.h ../AngelsVSDemons/world.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../AngelsVSDemons/abb.cpp ../AngelsVSDemons/angel.cpp ../AngelsVSDemons/counter.cpp ../AngelsVSDemons/demon.cpp ../AngelsVSDemons/demonicheap.cpp ../AngelsVSDemons/dlinklist.cpp ../AngelsVSDemons/email.cpp ../AngelsVSDemons/emailaddress.cpp ../AngelsVSDemons/family.cpp ../AngelsVSDemons/filemanager.cpp ../AngelsVSDemons/hash.cpp ../AngelsVSDemons/heap.cpp ../AngelsVSDemons/heaven.cpp ../AngelsVSDemons/humans.cpp ../AngelsVSDemons/launcher.cpp ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/mimeattachment.cpp ../AngelsVSDemons/mimecontentformatter.cpp ../AngelsVSDemons/mimefile.cpp ../AngelsVSDemons/mimehtml.cpp ../AngelsVSDemons/mimeinlinefile.cpp ../AngelsVSDemons/mimemessage.cpp ../AngelsVSDemons/mimemultipart.cpp ../AngelsVSDemons/mimepart.cpp ../AngelsVSDemons/mimetext.cpp ../AngelsVSDemons/person.cpp ../AngelsVSDemons/quotedprintable.cpp ../AngelsVSDemons/smtpclient.cpp ../AngelsVSDemons/soul.cpp ../AngelsVSDemons/structcreator.cpp ../AngelsVSDemons/triarbol.cpp ../AngelsVSDemons/warzone.cpp ../AngelsVSDemons/world.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../AngelsVSDemons/mainwindow.ui $(DISTDIR)/
 
 
@@ -1785,7 +1790,12 @@ demon.o: ../AngelsVSDemons/demon.cpp ../AngelsVSDemons/demon.h \
 		../AngelsVSDemons/mimefile.h \
 		../AngelsVSDemons/mimeinlinefile.h \
 		../AngelsVSDemons/humans.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug
+		../AngelsVSDemons/filemanager.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o demon.o ../AngelsVSDemons/demon.cpp
 
 demonicheap.o: ../AngelsVSDemons/demonicheap.cpp ../AngelsVSDemons/demonicheap.h \
@@ -2133,6 +2143,118 @@ filemanager.o: ../AngelsVSDemons/filemanager.cpp ../AngelsVSDemons/filemanager.h
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o filemanager.o ../AngelsVSDemons/filemanager.cpp
 
+hash.o: ../AngelsVSDemons/hash.cpp ../AngelsVSDemons/hash.h \
+		../AngelsVSDemons/dlinklist.h \
+		../AngelsVSDemons/soul.h \
+		../AngelsVSDemons/angel.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QString \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../AngelsVSDemons/person.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QVector \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDateTime \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../AngelsVSDemons/email.h \
+		../AngelsVSDemons/SmtpMime \
+		../AngelsVSDemons/smtpclient.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QObject \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/QSslSocket \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qssl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFlags \
+		../AngelsVSDemons/mimemessage.h \
+		../AngelsVSDemons/mimepart.h \
+		../AngelsVSDemons/mimecontentformatter.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QByteArray \
+		../AngelsVSDemons/smtpexports.h \
+		../AngelsVSDemons/mimemultipart.h \
+		../AngelsVSDemons/emailaddress.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QList \
+		../AngelsVSDemons/mimehtml.h \
+		../AngelsVSDemons/mimetext.h \
+		../AngelsVSDemons/mimeattachment.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../AngelsVSDemons/mimefile.h \
+		../AngelsVSDemons/mimeinlinefile.h \
+		../AngelsVSDemons/filemanager.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hash.o ../AngelsVSDemons/hash.cpp
+
 heap.o: ../AngelsVSDemons/heap.cpp ../AngelsVSDemons/heap.h \
 		../AngelsVSDemons/person.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QString \
@@ -2241,7 +2363,69 @@ heaven.o: ../AngelsVSDemons/heaven.cpp ../AngelsVSDemons/heaven.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
 		../AngelsVSDemons/triarbol.h \
+		../AngelsVSDemons/demon.h \
+		../AngelsVSDemons/demonicheap.h \
+		../AngelsVSDemons/heap.h \
+		../AngelsVSDemons/family.h \
+		../AngelsVSDemons/email.h \
+		../AngelsVSDemons/SmtpMime \
+		../AngelsVSDemons/smtpclient.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QObject \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/QSslSocket \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qssl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFlags \
+		../AngelsVSDemons/mimemessage.h \
+		../AngelsVSDemons/mimepart.h \
+		../AngelsVSDemons/mimecontentformatter.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QByteArray \
+		../AngelsVSDemons/smtpexports.h \
+		../AngelsVSDemons/mimemultipart.h \
+		../AngelsVSDemons/emailaddress.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QList \
+		../AngelsVSDemons/mimehtml.h \
+		../AngelsVSDemons/mimetext.h \
+		../AngelsVSDemons/mimeattachment.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../AngelsVSDemons/mimefile.h \
+		../AngelsVSDemons/mimeinlinefile.h \
 		../AngelsVSDemons/humans.h \
+		../AngelsVSDemons/filemanager.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
+		../AngelsVSDemons/hash.h \
+		../AngelsVSDemons/soul.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o heaven.o ../AngelsVSDemons/heaven.cpp
 
@@ -2433,7 +2617,9 @@ main.o: ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
 		../AngelsVSDemons/world.h \
-		../AngelsVSDemons/hell.h \
+		../AngelsVSDemons/heaven.h \
+		../AngelsVSDemons/angel.h \
+		../AngelsVSDemons/triarbol.h \
 		../AngelsVSDemons/demon.h \
 		../AngelsVSDemons/demonicheap.h \
 		../AngelsVSDemons/heap.h \
@@ -2467,9 +2653,8 @@ main.o: ../AngelsVSDemons/main.cpp ../AngelsVSDemons/mainwindow.h \
 		../AngelsVSDemons/mimefile.h \
 		../AngelsVSDemons/mimeinlinefile.h \
 		../AngelsVSDemons/humans.h \
-		../AngelsVSDemons/heaven.h \
-		../AngelsVSDemons/angel.h \
-		../AngelsVSDemons/triarbol.h \
+		../AngelsVSDemons/hash.h \
+		../AngelsVSDemons/soul.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList \
 		../AngelsVSDemons/counter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../AngelsVSDemons/main.cpp
@@ -2582,23 +2767,8 @@ mainwindow.o: ../AngelsVSDemons/mainwindow.cpp ../AngelsVSDemons/mainwindow.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QVariant \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QApplication \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qapplication.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcoreapplication.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qeventloop.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtGui/qguiapplication.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtGui/qinputmethod.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QMenuBar \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qmenubar.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qmenu.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qaction.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qactiongroup.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QStatusBar \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qstatusbar.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QWidget \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QDesktopWidget
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/QDesktopWidget \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtWidgets/qdesktopwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../AngelsVSDemons/mainwindow.cpp
 
 mimeattachment.o: ../AngelsVSDemons/mimeattachment.cpp ../AngelsVSDemons/mimeattachment.h \
@@ -3399,6 +3569,61 @@ smtpclient.o: ../AngelsVSDemons/smtpclient.cpp ../AngelsVSDemons/smtpclient.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o smtpclient.o ../AngelsVSDemons/smtpclient.cpp
 
+soul.o: ../AngelsVSDemons/soul.cpp ../AngelsVSDemons/soul.h \
+		../AngelsVSDemons/angel.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QString \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstring.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qchar.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qglobal.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qconfig.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtcore-config.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsysinfo.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlogging.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qflags.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmutex.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qnumeric.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qversiontagging.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbytearray.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qrefcount.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qnamespace.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qarraydata.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringliteral.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringalgorithms.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringview.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringbuilder.h \
+		../AngelsVSDemons/person.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QVector \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvector.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qalgorithms.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qiterator.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qpair.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontainertools_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qpoint.h \
+		../AngelsVSDemons/dlinklist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDateTime \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdatetime.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qshareddata.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qhash.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o soul.o ../AngelsVSDemons/soul.cpp
+
 structcreator.o: ../AngelsVSDemons/structcreator.cpp ../AngelsVSDemons/structcreator.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QRandomGenerator \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qrandom.h \
@@ -3537,7 +3762,72 @@ triarbol.o: ../AngelsVSDemons/triarbol.cpp ../AngelsVSDemons/triarbol.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringlist.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qregexp.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qstringmatcher.h \
+		../AngelsVSDemons/demon.h \
+		../AngelsVSDemons/demonicheap.h \
+		../AngelsVSDemons/heap.h \
+		../AngelsVSDemons/family.h \
+		../AngelsVSDemons/email.h \
+		../AngelsVSDemons/SmtpMime \
+		../AngelsVSDemons/smtpclient.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QObject \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcoreevent.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmetatype.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qobject_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/QSslSocket \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetworkglobal.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtnetwork-config.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qtcpsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qabstractsocket.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qiodevice.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdebug.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qmap.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qtextstream.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qlocale.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qvariant.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qset.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslerror.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qsslcertificate.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qcryptographichash.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtNetwork/qssl.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFlags \
+		../AngelsVSDemons/mimemessage.h \
+		../AngelsVSDemons/mimepart.h \
+		../AngelsVSDemons/mimecontentformatter.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QByteArray \
+		../AngelsVSDemons/smtpexports.h \
+		../AngelsVSDemons/mimemultipart.h \
+		../AngelsVSDemons/emailaddress.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QList \
+		../AngelsVSDemons/mimehtml.h \
+		../AngelsVSDemons/mimetext.h \
+		../AngelsVSDemons/mimeattachment.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QFile \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfile.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfiledevice.h \
+		../AngelsVSDemons/mimefile.h \
+		../AngelsVSDemons/mimeinlinefile.h \
+		../AngelsVSDemons/humans.h \
+		../AngelsVSDemons/filemanager.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
+		../AngelsVSDemons/structcreator.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QRandomGenerator \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qrandom.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o triarbol.o ../AngelsVSDemons/triarbol.cpp
 
 warzone.o: ../AngelsVSDemons/warzone.cpp ../AngelsVSDemons/warzone.h \
@@ -3648,18 +3938,20 @@ warzone.o: ../AngelsVSDemons/warzone.cpp ../AngelsVSDemons/warzone.h \
 		../AngelsVSDemons/mimefile.h \
 		../AngelsVSDemons/mimeinlinefile.h \
 		../AngelsVSDemons/humans.h \
-		../AngelsVSDemons/heaven.h \
-		../AngelsVSDemons/angel.h \
-		../AngelsVSDemons/triarbol.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList \
-		../AngelsVSDemons/world.h \
-		../AngelsVSDemons/abb.h \
-		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
 		../AngelsVSDemons/filemanager.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QTextStream \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDebug \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
+		../AngelsVSDemons/heaven.h \
+		../AngelsVSDemons/angel.h \
+		../AngelsVSDemons/triarbol.h \
+		../AngelsVSDemons/hash.h \
+		../AngelsVSDemons/soul.h \
+		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList \
+		../AngelsVSDemons/world.h \
+		../AngelsVSDemons/abb.h \
 		../AngelsVSDemons/counter.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o warzone.o ../AngelsVSDemons/warzone.cpp
 
@@ -3744,7 +4036,9 @@ world.o: ../AngelsVSDemons/world.cpp ../AngelsVSDemons/world.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QDir \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qdir.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/qfileinfo.h \
-		../AngelsVSDemons/hell.h \
+		../AngelsVSDemons/heaven.h \
+		../AngelsVSDemons/angel.h \
+		../AngelsVSDemons/triarbol.h \
 		../AngelsVSDemons/demon.h \
 		../AngelsVSDemons/demonicheap.h \
 		../AngelsVSDemons/heap.h \
@@ -3778,9 +4072,8 @@ world.o: ../AngelsVSDemons/world.cpp ../AngelsVSDemons/world.h \
 		../AngelsVSDemons/mimefile.h \
 		../AngelsVSDemons/mimeinlinefile.h \
 		../AngelsVSDemons/humans.h \
-		../AngelsVSDemons/heaven.h \
-		../AngelsVSDemons/angel.h \
-		../AngelsVSDemons/triarbol.h \
+		../AngelsVSDemons/hash.h \
+		../AngelsVSDemons/soul.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QStringList \
 		../AngelsVSDemons/counter.h \
 		/home/thelopezepol/Qt/5.15.0/gcc_64/include/QtCore/QRandomGenerator \
