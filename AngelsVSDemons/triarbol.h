@@ -18,19 +18,23 @@ struct NodeT{
 struct TriArbol{
     //Attr.
     NodeT *god;
-    DLinkList<Angel> *listaNodes;
+    DLinkList<NodeT> *listaNodes;
+    int gens;
+    QString angelsNames[10] = {"Miguel","Nuriel","Aniel","Rafael","Gabriel","Shamsiel","Raguel","Uriel","Azrael","Sariel"};
     //Constr.
     TriArbol(){
         Angel *god = new Angel("GOD",0,0);
         this->god = new NodeT(god);
         setGods();
+        gens = 0;
 
     }
     //Methods
     void setGods();
-    void insertar(Angel *angel);
-    NodeT *insertarAux(Angel *angel,NodeT *node);
-    void addAngels(NodeT *node,int i);
+    void newAngels(int gen);
+    QString ranName();
+    void aOrden(NodeT *node, int nivel);
+
 };
 
 #endif // TRIARBOL_H

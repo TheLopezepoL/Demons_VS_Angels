@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -18,42 +18,71 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     abb.cpp \
     angel.cpp \
-    continent.cpp \
     counter.cpp \
     demon.cpp \
     demonicheap.cpp \
     dlinklist.cpp \
+    email.cpp \
+    emailaddress.cpp \
     family.cpp \
     filemanager.cpp \
+    hash.cpp \
     heap.cpp \
     heaven.cpp \
-    hell.cpp \
     humans.cpp \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
+    mimeattachment.cpp \
+    mimecontentformatter.cpp \
+    mimefile.cpp \
+    mimehtml.cpp \
+    mimeinlinefile.cpp \
+    mimemessage.cpp \
+    mimemultipart.cpp \
+    mimepart.cpp \
+    mimetext.cpp \
     person.cpp \
+    quotedprintable.cpp \
+    smtpclient.cpp \
+    soul.cpp \
     structcreator.cpp \
     triarbol.cpp \
     warzone.cpp \
     world.cpp
 
 HEADERS += \
+    SmtpMime \
     abb.h \
     angel.h \
     counter.h \
     demon.h \
     demonicheap.h \
     dlinklist.h \
+    email.h \
+    emailaddress.h \
     family.h \
     filemanager.h \
+    hash.h \
     heap.h \
     heaven.h \
-    hell.h \
     humans.h \
     launcher.h \
     mainwindow.h \
+    mimeattachment.h \
+    mimecontentformatter.h \
+    mimefile.h \
+    mimehtml.h \
+    mimeinlinefile.h \
+    mimemessage.h \
+    mimemultipart.h \
+    mimepart.h \
+    mimetext.h \
     person.h \
+    quotedprintable.h \
+    smtpclient.h \
+    smtpexports.h \
+    soul.h \
     structcreator.h \
     triarbol.h \
     warzone.h \

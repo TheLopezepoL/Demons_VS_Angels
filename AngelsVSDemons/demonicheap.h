@@ -5,7 +5,7 @@
 
 
 struct DemonicHeap{
-    Family** array;
+    Family *array[10000];
     int len;
 
     DemonicHeap();

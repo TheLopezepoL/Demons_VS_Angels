@@ -2,19 +2,15 @@
 
 DemonicHeap::DemonicHeap()
 {
-    array = {};
     len = 0;
 }
 
 void DemonicHeap::append(Person *person, int sin){
     if(person != nullptr && !hasFamily(person, sin)){
-        Family* newArray[++len];
-        for (int i=0; i<len-1; i++)
-            newArray[i] = array[i];
-        Family* newFamily = new Family(person->country, person->secondName);
-        newFamily->addHuman(person, sin);
-        newArray[len] = newFamily;
-        array = newArray;
+        array[len] = new Family(person->country, person->secondName);
+        array[len]->addHuman(person, sin);
+        len++;
+
     }
     insertionSort();
 }
