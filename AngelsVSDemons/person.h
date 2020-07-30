@@ -3,6 +3,7 @@
 #include <QString>
 #include <QVector>
 #include "dlinklist.h"
+#include <QDateTime>
 
 enum State{
 
@@ -32,6 +33,7 @@ struct Person{
     //ArrayList goodActions
     int goodActions[7] = {0,0,0,0,0,0,0};
 
+
     //Constructor
     Person(){
         id = 0;
@@ -55,7 +57,7 @@ struct Person{
         this->career = career;
         this->father = nullptr;
         this->sons = new DLinkList<Person>();
-
+        this->state = VIVO;
     }
 
     //Methods
@@ -90,6 +92,8 @@ struct Person{
     int totalSins(int sin);
     //CALCULA EL TOTAL DE PECADOS
     int totalSins();
+    //ESCRIBIR CONDENA
+    QString demonicBinnacle(int sinIndx);
 
 
 

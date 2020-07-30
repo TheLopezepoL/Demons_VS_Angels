@@ -17,6 +17,7 @@ struct Family{
     bool isFamily(Person* person);
     Person* saveHuman(Person* person, int sin);
     void addHuman(Person* person, int sin);
+    void mostrarFamilia();
 };
 
 #endif // FAMILY_H

@@ -17,7 +17,8 @@ Family::Family(QString country, QString secondName){
 
 bool Family::isFamily(Person *person){
     if (person != nullptr){
-        if (person->country == this->country && person->secondName == this->secondName)
+        Person* ptr = this->family->first->data;
+        if (person->country == ptr->country && person->secondName == ptr->secondName)
             return true;
     }
     return false;
@@ -35,5 +36,13 @@ void Family::addHuman(Person *person, int sin){
     if (person != nullptr){
         this->sins += person->totalSins(sin);
         this->family->append(person);
+    }
+}
+
+void Family::mostrarFamilia(){
+    Node<Person>* person = this->family->first;
+    while(person != nullptr){
+        person->data->imprimir();
+        person = person->nxt;
     }
 }
