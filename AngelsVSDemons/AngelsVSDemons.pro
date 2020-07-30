@@ -26,6 +26,7 @@ SOURCES += \
     emailaddress.cpp \
     family.cpp \
     filemanager.cpp \
+    gamenu.cpp \
     hash.cpp \
     heap.cpp \
     heaven.cpp \
@@ -33,6 +34,7 @@ SOURCES += \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
+    map.cpp \
     mimeattachment.cpp \
     mimecontentformatter.cpp \
     mimefile.cpp \
@@ -43,6 +45,7 @@ SOURCES += \
     mimepart.cpp \
     mimetext.cpp \
     person.cpp \
+    sinmenu.cpp \
     quotedprintable.cpp \
     smtpclient.cpp \
     soul.cpp \
@@ -63,12 +66,14 @@ HEADERS += \
     emailaddress.h \
     family.h \
     filemanager.h \
+    gamenu.h \
     hash.h \
     heap.h \
     heaven.h \
     humans.h \
     launcher.h \
     mainwindow.h \
+    map.h \
     mimeattachment.h \
     mimecontentformatter.h \
     mimefile.h \
@@ -79,6 +84,7 @@ HEADERS += \
     mimepart.h \
     mimetext.h \
     person.h \
+    sinmenu.h \
     quotedprintable.h \
     smtpclient.h \
     smtpexports.h \
@@ -89,7 +95,10 @@ HEADERS += \
     world.h
 
 FORMS += \
-    mainwindow.ui
+    gamenu.ui \
+    mainwindow.ui \
+    map.ui \
+    sinmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
