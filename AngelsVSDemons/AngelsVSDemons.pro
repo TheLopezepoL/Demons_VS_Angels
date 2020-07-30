@@ -18,13 +18,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     abb.cpp \
     angel.cpp \
-    continent.cpp \
     counter.cpp \
     demon.cpp \
     demonicheap.cpp \
     dlinklist.cpp \
     family.cpp \
     filemanager.cpp \
+    gamenu.cpp \
     heap.cpp \
     heaven.cpp \
     hell.cpp \
@@ -32,7 +32,9 @@ SOURCES += \
     launcher.cpp \
     main.cpp \
     mainwindow.cpp \
+    map.cpp \
     person.cpp \
+    sinmenu.cpp \
     structcreator.cpp \
     triarbol.cpp \
     warzone.cpp \
@@ -47,20 +49,26 @@ HEADERS += \
     dlinklist.h \
     family.h \
     filemanager.h \
+    gamenu.h \
     heap.h \
     heaven.h \
     hell.h \
     humans.h \
     launcher.h \
     mainwindow.h \
+    map.h \
     person.h \
+    sinmenu.h \
     structcreator.h \
     triarbol.h \
     warzone.h \
     world.h
 
 FORMS += \
-    mainwindow.ui
+    gamenu.ui \
+    mainwindow.ui \
+    map.ui \
+    sinmenu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

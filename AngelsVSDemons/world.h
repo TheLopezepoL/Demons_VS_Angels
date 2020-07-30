@@ -12,10 +12,18 @@ struct World{
     //////////////////////////////////////
     //Attr.
     //////////////////////////////////////
-    Hell *hell;
     Heaven *heaven;
     //////////////////////////////////////
     int population = 0;
+    int counterSins = 0;
+    int counterGA = 0;
+    //////////////////////////////////////
+    //STRINGS DE MENSAJES
+    QString tree = "";
+    QString binnacle = "";
+    QString top = "";
+    QString cantPecadosCont = "";
+    QString cantGA = "";
     //////////////////////////////////////
     //ARRAYS/////////////////////
     //////////////////////////////////////
@@ -76,14 +84,15 @@ struct World{
     //Top de 10 paises con mejores acciones
     DLinkList<Counter> *top10GA();
     //Print de los tops
-    void printTops(DLinkList<Counter> *top);
+    QString printTops(DLinkList<Counter> *top);
     //Top de 5 paises menos pecadores
     DLinkList<Counter> *top5LessSins();
     //Top de 5 paises con pocas buenas acciones
     DLinkList<Counter> *top5LessGA();
-
-    //Mapa de Continentes
-    //////////////////////////////////////
+    //GET MAPA
+    QStringList getMapa(bool key);
+    int getCantContinent(QString continent);
+    ///////////////////////////////////////////
 
 };
 

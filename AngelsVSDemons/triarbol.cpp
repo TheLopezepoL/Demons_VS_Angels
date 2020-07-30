@@ -1,40 +1,35 @@
 #include "triarbol.h"
+#include "structcreator.h"
 /* SET GODS
- * E:
- * S:
- * D:
+ * E: No tiene
+ * S: No tiene
+ * D: Crea los primeros dos niveles del arbol
  */
 void TriArbol::setGods(){
+    this->listaNodes = new DLinkList<NodeT>();
     Angel *serufines = new Angel("SERUFINES",0,0);
     Angel *querabines = new Angel("QUERABINES",0,0);
     Angel *tronos = new Angel("TRONOS",0,0);
-    this->god->first = new NodeT(serufines);
-    this->god->second = new NodeT(querabines);
-    this->god->third = new NodeT(tronos);
+    NodeT *n = new NodeT(serufines);
+    NodeT *n1 = new NodeT(querabines);
+    NodeT *n2 = new NodeT(tronos);
+    this->god->first = n;
+    this->god->second = n1;
+    this->god->third = n2;
+    listaNodes->append(n);
+    listaNodes->append(n1);
+    listaNodes->append(n2);
 }
-/* INSERTAR
- * E: Un puntero a angel
- * S: No tiene
- * D: Agrega un angel en el arbol
+
+/* Get Random Name
+ * E: No tiene
+ * S: Un string con el nombre del angel
+ * D: Selecciona un nombre random de la lista de nombres para angeles
  */
-
-void TriArbol::insertar(Angel *angel){
-    root = insertarAux(angel,root);
+QString TriArbol::ranName(){
+    int i = StructCreator::randomInit(0,9);
+    return angelsNames[i];
 }
-
-/* INSERTAR AUXILIAR
- * E: Un node y un angel
- * S: Un node
- * D: Inserta un nodo en el arbol
- */
-
-NodeT *TriArbol::insertarAux(Angel *angel, NodeT *node){
-    if (node == nullptr)
-        return new NodeT(angel);
-
-
-}
-
 
 /* AGREGA TRES ANGELES A UN NODE
  * E: Un node de angel y un int
@@ -42,3 +37,42 @@ NodeT *TriArbol::insertarAux(Angel *angel, NodeT *node){
  * D: Agrega tres angeles
  */
 
+void TriArbol::newAngels(int gen){
+
+    DLinkList<NodeT> *array = new DLinkList<NodeT>();
+    Node<NodeT> *tmp = listaNodes->first;
+    int version = 0;
+
+    while (tmp != nullptr) {
+        qDebug() << tmp->data->angel->name;
+        for (int i = 0; i < 3 ; ++i){
+           version = version + 1;
+           Angel *nuevo = new Angel(ranName(),version,gen);
+           NodeT *newNode = new NodeT(nuevo);
+           array->append(newNode);
+           qDebug() << nuevo->name;
+           if (i == 0)
+               tmp->data->first = newNode;
+           else if (i == 1) {
+               tmp->data->second = newNode;
+           }
+           else if (i == 2) {
+               tmp->data->third = newNode;
+           }
+        }
+        tmp = tmp->nxt;
+    }
+    listaNodes = array;
+}
+/*IMPRIMIR*/
+void TriArbol::aOrden(NodeT *node, int nivel){
+    if (node != nullptr){
+        qDebug() << "";
+        qDebug() << "Nivel: "<<nivel;
+        qDebug() << "Node: " << node->angel->name;
+        aOrden(node->first, nivel+1);
+        aOrden(node->second, nivel+1);
+        aOrden(node->third, nivel+1);
+        //node->person->imprimir();
+    }
+}

@@ -20,6 +20,7 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
     this->peopleList = new Humans();
     this->paises = new DLinkList<Counter>();
     this->paisesGA = new DLinkList<Counter>();
+    this->heaven = new Heaven(peopleList);
     countryList();
 }
 
@@ -31,7 +32,7 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
 
 void World::birth(int quant){
     int i = 0;
-
+    this->tree = "";
     while(i <= quant){
 
         int id = getHumanID(0,999999);
@@ -54,8 +55,10 @@ void World::birth(int quant){
     //Agrega hijos
     setSons();
     population = quant + population;
+    binnacle = binnacle +"\n"+ "Se han generado: "+ QString::number(quant) + " humanos!" + " Hay un total de "+ QString::number(population) + " humanos." ;
     //Actualiza el arbol
     abbGenerator();
+    tree = tree + "ARBOL DE IDS:\n" + abb->binnacle();
     //Imprime Humanos
     //imprimirHumanos();
 }
@@ -89,6 +92,8 @@ void World::imprimirHumanos(){
         tmp = tmp->nxt;
         ++i;
     }
+    qDebug()<< "Cantida TOTAL PECADOS: " << counterSins;
+    qDebug()<< "Cantida TOTAL BUENAS ACCIONES: " << counterGA;
 }
 
 /* ABB CREATOR
@@ -103,13 +108,12 @@ void World::abbGenerator(){
     nuevo->insertar(mid);
     //mid->imprimir();
     while ( i != 0) {
-        //qDebug() << i;
         int random = StructCreator::randomInit(0,population-1);
         nuevo->insertar(peopleList->returnHuman(random));
         --i;
     }
     this->abb = nuevo;
-    //abb->posOrden(abb->root,0);
+    tree = tree + "LA CANTIDAD DE NODOS ES: " + QString::number(nuevo->nodeCounter(nuevo->root)) + "\n";
 }
 
 
@@ -185,6 +189,7 @@ void World::sinGenerator(){
     while (tmp != nullptr){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
+            counterSins = counterSins + random;
             tmp->person->addSin(i,random);
             tmp->person->addSinAUX(i,random);
             this->addCountrySins(random,tmp->person->country);
@@ -203,6 +208,7 @@ void World::blessGenerator(){
     while(tmp != nullptr){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
+            counterGA = counterGA + random;
             tmp->person->addAction(i,random);
             this->addCountryGA(random,tmp->person->country);
         }
@@ -334,6 +340,7 @@ void World::addCountrySins(int cant ,QString name){
         tmp = tmp->nxt;
     }
 }
+
 /* GET TOP 10 DE PAISES MAS PECADORES
  * E: No tiene
  * S: Un array con el top 10 de paises
@@ -350,7 +357,7 @@ DLinkList<Counter> *World::top10Sins(){
         tmp = tmp->prv;
         ++i;
     }
-    printTops(array);
+    //printTops(array);
     return array;
 }
 
@@ -414,19 +421,67 @@ DLinkList<Counter> *World::top5LessGA(){
     return array;
 }
 //IMPRIMIR TOPS
-void World::printTops(DLinkList<Counter> *top){
-
+QString World::printTops(DLinkList<Counter> *top){
+    QString msg = "\n";
     Node<Counter> *tmp = top->first;
     int i = 1;
     while (tmp != nullptr){
-        qDebug() << "";
-        qDebug() << "#" << i;
-        qDebug() << "Pais: " << tmp->data->name;
-        qDebug() << "Continente: " << tmp->data->continent;
-        qDebug() << "Cantidad Pecadores: " << tmp->data->cant;
+        msg = msg + "\n" + "#" + QString::number(i) + "\n" + "Pais: " + tmp->data->name + "\n" + "Continente: " + tmp->data->continent + "\n" + "Cantidad: " +QString::number(tmp->data->cant);
         tmp = tmp->nxt;
         ++i;
+    }
+    return msg;
+}
+
+/* GET MAPA LIST
+ * E: No tiene
+ * S: No tiene
+ * D: Devuelve una lista con los nombres de las imagenes de los continentes
+ */
+
+QStringList World::getMapa(bool key){
+    if (key == true){
+        int percentaje = counterSins * 0.2;
+        QStringList images;
+        for (int i = 0 ; i < 5 ; ++i){
+            int cant = getCantContinent(continents[i]);
+            cantPecadosCont = cantPecadosCont + "El continente " + continents[i] + " tiene un total de " + QString::number(cant) + " pecados." + "\n";
+            if (cant >= percentaje)
+                images.append(continents[i] + "1.png");
+            else if (cant < percentaje) {
+                images.append(continents[i] + "0.png");
+            }
+        }
+        cantPecadosCont = cantPecadosCont + "En el mundo hay un total de: " + QString::number(counterSins) + " pecados.";
+        return images;
+    }
+    else {
+        int percentaje = counterGA * 0.2;
+        QStringList images;
+        for (int i = 0 ; i < 5 ; ++i){
+            int cant = getCantContinent(continents[i]);
+            cantGA = cantGA + "El continente " + continents[i] + " tiene un total de " + QString::number(cant) + " buenas acciones." + "\n";
+            if (cant >= percentaje)
+                images.append(continents[i] + "1.png");
+            else if (cant < percentaje) {
+                images.append(continents[i] + "0.png");
+            }
+        }
+
+        cantGA = cantGA + "En el mundo hay un total de: " + QString::number(counterGA)+ " buenas acciones.";;
+        return images;
     }
 
 }
 
+//CANTIDAD DE PECADOS EN EL CONTINENTE
+int World::getCantContinent(QString continent){
+    int i = 0;
+    Node<Counter> *tmp = paises->first;
+    while (tmp != nullptr) {
+        if (tmp->data->continent == continent)
+            i = i + tmp->data->cant;
+        tmp = tmp->nxt;
+    }
+    return i;
+}

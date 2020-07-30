@@ -11,9 +11,13 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +26,22 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+    QLabel *title;
+    QPushButton *Start;
+    QPushButton *Birth;
+    QPushButton *SinGenerator;
+    QLineEdit *CantidadHumans;
+    QPushButton *GAGenerator;
+    QPushButton *SinMenu;
+    QPushButton *GAMenu;
+    QPushButton *Salvation;
+    QPushButton *Damnation;
+    QTextEdit *textEdit;
+    QPushButton *ABB;
+    QPushButton *Hell;
+    QPushButton *Heaven;
+    QPushButton *Maps;
+    QPushButton *Maps2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -29,12 +49,77 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(2002, 1176);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        title = new QLabel(centralwidget);
+        title->setObjectName(QString::fromUtf8("title"));
+        title->setGeometry(QRect(150, 0, 1301, 141));
+        title->setPixmap(QPixmap(QString::fromUtf8("../ImagenesGUI/title.png")));
+        Start = new QPushButton(centralwidget);
+        Start->setObjectName(QString::fromUtf8("Start"));
+        Start->setGeometry(QRect(130, 710, 201, 81));
+        Start->setAutoFillBackground(false);
+        Start->setAutoDefault(false);
+        Start->setFlat(true);
+        Birth = new QPushButton(centralwidget);
+        Birth->setObjectName(QString::fromUtf8("Birth"));
+        Birth->setGeometry(QRect(100, 220, 241, 131));
+        Birth->setFlat(true);
+        SinGenerator = new QPushButton(centralwidget);
+        SinGenerator->setObjectName(QString::fromUtf8("SinGenerator"));
+        SinGenerator->setGeometry(QRect(60, 410, 351, 71));
+        SinGenerator->setFlat(true);
+        CantidadHumans = new QLineEdit(centralwidget);
+        CantidadHumans->setObjectName(QString::fromUtf8("CantidadHumans"));
+        CantidadHumans->setGeometry(QRect(140, 140, 161, 71));
+        GAGenerator = new QPushButton(centralwidget);
+        GAGenerator->setObjectName(QString::fromUtf8("GAGenerator"));
+        GAGenerator->setGeometry(QRect(60, 510, 351, 121));
+        GAGenerator->setFlat(true);
+        SinMenu = new QPushButton(centralwidget);
+        SinMenu->setObjectName(QString::fromUtf8("SinMenu"));
+        SinMenu->setGeometry(QRect(480, 140, 301, 71));
+        SinMenu->setFlat(true);
+        GAMenu = new QPushButton(centralwidget);
+        GAMenu->setObjectName(QString::fromUtf8("GAMenu"));
+        GAMenu->setGeometry(QRect(820, 140, 301, 71));
+        GAMenu->setFlat(true);
+        Salvation = new QPushButton(centralwidget);
+        Salvation->setObjectName(QString::fromUtf8("Salvation"));
+        Salvation->setGeometry(QRect(1270, 140, 271, 71));
+        Salvation->setFlat(true);
+        Damnation = new QPushButton(centralwidget);
+        Damnation->setObjectName(QString::fromUtf8("Damnation"));
+        Damnation->setGeometry(QRect(1270, 220, 271, 71));
+        Damnation->setFlat(true);
+        textEdit = new QTextEdit(centralwidget);
+        textEdit->setObjectName(QString::fromUtf8("textEdit"));
+        textEdit->setGeometry(QRect(430, 240, 821, 601));
+        ABB = new QPushButton(centralwidget);
+        ABB->setObjectName(QString::fromUtf8("ABB"));
+        ABB->setGeometry(QRect(1280, 740, 241, 101));
+        ABB->setFlat(true);
+        Hell = new QPushButton(centralwidget);
+        Hell->setObjectName(QString::fromUtf8("Hell"));
+        Hell->setGeometry(QRect(1320, 410, 181, 91));
+        Hell->setFlat(true);
+        Heaven = new QPushButton(centralwidget);
+        Heaven->setObjectName(QString::fromUtf8("Heaven"));
+        Heaven->setGeometry(QRect(1320, 300, 181, 91));
+        Heaven->setFlat(true);
+        Maps = new QPushButton(centralwidget);
+        Maps->setObjectName(QString::fromUtf8("Maps"));
+        Maps->setGeometry(QRect(1280, 530, 241, 81));
+        Maps->setFlat(true);
+        Maps2 = new QPushButton(centralwidget);
+        Maps2->setObjectName(QString::fromUtf8("Maps2"));
+        Maps2->setGeometry(QRect(1280, 630, 241, 81));
+        Maps2->setFlat(true);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 2002, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -42,12 +127,29 @@ public:
 
         retranslateUi(MainWindow);
 
+        Start->setDefault(false);
+
+
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        title->setText(QString());
+        Start->setText(QString());
+        Birth->setText(QString());
+        SinGenerator->setText(QString());
+        GAGenerator->setText(QString());
+        SinMenu->setText(QString());
+        GAMenu->setText(QString());
+        Salvation->setText(QString());
+        Damnation->setText(QString());
+        ABB->setText(QString());
+        Hell->setText(QString());
+        Heaven->setText(QString());
+        Maps->setText(QString());
+        Maps2->setText(QString());
     } // retranslateUi
 
 };

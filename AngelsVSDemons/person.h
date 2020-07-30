@@ -55,6 +55,7 @@ struct Person{
         this->career = career;
         this->father = nullptr;
         this->sons = new DLinkList<Person>();
+
     }
 
     //Methods
