@@ -26,7 +26,9 @@ struct ABB{
     NodeABB *insertarAux(Person* person, NodeABB *node);
     int nodeCounter(NodeABB *node);
     NodeABB *search(int valor , NodeABB *node);
-    void posOrden(NodeABB *node, int nivel);
+    QString posOrden(NodeABB *node, int nivel);
+    QString binnacle();
+    void preOrden(NodeABB *node, int nive);
 
 
 

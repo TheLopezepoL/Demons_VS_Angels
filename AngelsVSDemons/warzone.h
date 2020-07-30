@@ -11,8 +11,9 @@ struct Warzone{
     World *world;
     Humans *humans;
     //Cosntr.
-    Warzone(){
-    }
+    Warzone(){}
+    //Methods
+    void invoke();
 
 };
 

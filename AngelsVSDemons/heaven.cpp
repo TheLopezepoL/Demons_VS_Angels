@@ -1,5 +1,4 @@
 #include "heaven.h"
-//Iguala la lista de Humanos
 
 Heaven::Heaven(){
     this->binnacle = "";
