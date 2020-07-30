@@ -47,7 +47,7 @@ bool Person::hasFather(){
  * D: Setea el el puntero padre a la persona(puntero) recibida
  */
 void Person::setFather(Person *person){
-    if (!this->hasFather()){
+    if (!this->hasFather(020-05-24 19:57)){
         this->father = person;
     }
 }
@@ -199,6 +199,40 @@ int Person::totalSins(){
     for (int i = 0; i < 7; i++)
         cont += this->totalSins(i);
     return cont;
+}
+
+QString Person::demonicBinnacle(int sinIndx){
+    QString binnacle = "";
+    binnacle.append(QDateTime::currentDateTime().toString("yyyy-MM-d h:m:s ap") + "\t");
+    binnacle.append("Humano #" + QString::number(id) + "\t" + name + " " + secondName + " de " + country + "\n");
+    binnacle.append("Murio el " + QDateTime::currentDateTime().toString("yyyy-MM-d"));
+    binnacle.append(" condenado por cometer " + QString::number(sins[sinIndx]) + " pecados de ");
+    switch(sinIndx){
+    case 0:
+        binnacle.append("Orgullo y " + QString::number(goodActions[sinIndx]) + " acciones de Humildad por el demonio Lucifer\n");
+        break;
+    case 1:
+        binnacle.append("Envidia y " + QString::number(goodActions[sinIndx]) + " acciones de Solidaridad por el demonio Belcebu\n");
+        break;
+    case 2:
+        binnacle.append("Ira y " + QString::number(goodActions[sinIndx]) + " acciones de Calma por el demonio Satan\n");
+        break;
+    case 3:
+        binnacle.append("Pereza y " + QString::number(goodActions[sinIndx]) + " acciones de Diligencia por el demonio Abadon\n");
+        break;
+    case 4:
+        binnacle.append("Codicia y " + QString::number(goodActions[sinIndx]) + " acciones de Donacion por el demonio Mammon\n");
+        break;
+    case 5:
+        binnacle.append("Glotoneria y " + QString::number(goodActions[sinIndx]) + " acciones de Ayuno por el demonio Belfegor\n");
+        break;
+    case 6:
+        binnacle.append("Lujuria y " + QString::number(goodActions[sinIndx]) + " acciones de Castidad por el demonio Asmodeo\n");
+        break;
+    default:
+        break;
+    }
+    return binnacle;
 }
 
 

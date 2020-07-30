@@ -21,6 +21,9 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
     this->paises = new DLinkList<Counter>();
     this->paisesGA = new DLinkList<Counter>();
     countryList();
+    Demon* newHell[7] = {new Demon("Lucifer", "Orgullo", 0, peopleList), new Demon("Belcebu", "Envidia", 1, peopleList), new Demon("Satan", "Ira", 2, peopleList), new Demon("Abadon", "Pereza", 3, peopleList), new Demon("Mammon", "Codicia", 4, peopleList), new Demon("Belfegor", "Gula", 5, peopleList), new Demon("Asmodeo", "Lujuria", 6, peopleList)};
+    for (int i = 0; i < 7; i++)
+            this->hell[i] = newHell[i];
 }
 
 /*  ALGORTIMO DE NACIMIENTO PRIMARY
@@ -430,3 +433,16 @@ void World::printTops(DLinkList<Counter> *top){
 
 }
 
+
+int World::quantDeadHumans(){
+    int total = 0;
+    for (int i = 0; i < 6; i++)
+        total += hell[i]->quant;
+    return total;
+}
+
+QString World::selectDemon(int x){
+    QString info = "";
+    info.append("Demonio: " + hell[x]->name + "\tPecado:" + hell[x]->sin);
+    return info;
+}

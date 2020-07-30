@@ -4,15 +4,14 @@
 #include "abb.h"
 #include "dlinklist.h"
 #include "filemanager.h"
-#include "hell.h"
 #include "heaven.h"
 #include "counter.h"
 #include "humans.h"
+#include "demon.h"
 struct World{
     //////////////////////////////////////
     //Attr.
     //////////////////////////////////////
-    Hell *hell;
     Heaven *heaven;
     //////////////////////////////////////
     int population = 0;
@@ -33,6 +32,8 @@ struct World{
     ABB *abb;
     DLinkList<Counter> *paises;
     DLinkList<Counter> *paisesGA;
+    //////////////////////////////////////
+    Demon* hell[7];
     //////////////////////////////////////
     //Constr.
     //////////////////////////////////////
@@ -81,6 +82,11 @@ struct World{
     DLinkList<Counter> *top5LessSins();
     //Top de 5 paises con pocas buenas acciones
     DLinkList<Counter> *top5LessGA();
+    //Cantidad de Humanos contenados
+    int quantDeadHumans();
+    //Return nombre y pecado de x demonio
+    QString selectDemon(int x);
+
 
     //Mapa de Continentes
     //////////////////////////////////////
