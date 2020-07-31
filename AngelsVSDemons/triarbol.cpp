@@ -37,7 +37,7 @@ QString TriArbol::ranName(){
  * D: Agrega tres angeles
  */
 
-void TriArbol::newAngels(int gen, Demon* hell[7]){
+void TriArbol::newAngels(Demon* hell[7]){
 
     DLinkList<NodeT> *array = new DLinkList<NodeT>();
     Node<NodeT> *tmp = listaNodes->first;
@@ -47,7 +47,7 @@ void TriArbol::newAngels(int gen, Demon* hell[7]){
         qDebug() << tmp->data->angel->name;
         for (int i = 0; i < 3 ; ++i){
            version = version + 1;
-           Angel *nuevo = new Angel(ranName(),version,gen);
+           Angel *nuevo = new Angel(ranName(),version,times);
            // Salvar
            int demon = StructCreator::randomInit(0, 7);
            Family* family = hell[demon]->min();
@@ -82,6 +82,7 @@ void TriArbol::newAngels(int gen, Demon* hell[7]){
         }
         tmp = tmp->nxt;
     }
+    times++;
     listaNodes = array;
 }
 //IMPRIMIR/

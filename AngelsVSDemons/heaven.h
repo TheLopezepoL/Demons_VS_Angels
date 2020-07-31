@@ -5,6 +5,7 @@
 #include "humans.h"
 #include "hash.h"
 #include <QStringList>
+#include <QDateTime>
 struct Heaven{
     //Attr
     QString binnacle;
@@ -14,7 +15,7 @@ struct Heaven{
     Heaven();
     //Methods
     //Salvacion
-    void salvation();
+    void salvation(Demon* hell[7]);
     void sendEmail();
 
 
