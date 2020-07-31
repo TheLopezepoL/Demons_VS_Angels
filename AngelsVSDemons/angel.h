@@ -18,7 +18,7 @@ struct Angel{
     }
     //Methods
     void setHuman(Person *humanSaved);
-
+    void printAngel();
 
 };
 

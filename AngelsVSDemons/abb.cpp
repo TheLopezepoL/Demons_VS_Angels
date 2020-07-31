@@ -56,14 +56,23 @@ NodeABB *ABB::search(int valor, NodeABB *node){
 
 
 /*Imprimir Arbol en POSICION orden*/
-
-void ABB::posOrden(NodeABB *node, int nivel){
-    if (node != nullptr){
-        qDebug() << "";
-        qDebug() << "Nivel: "<<nivel;
-        qDebug() << "Node: " << node->person->id;
-        posOrden(node->leftSon, nivel+1);
-        posOrden(node->rightSon, nivel+1);
-        //node->person->imprimir();
+QString ABB::binnacle(){
+    return posOrden(root,0);
+}
+QString ABB::posOrden(NodeABB *node, int nivel){
+    if (node == nullptr)
+        return "";
+    else if (node != nullptr){
+        return "Node ID: " + QString::number(node->person->id) + " \t" + "\n" + posOrden(node->leftSon, nivel+1) + posOrden(node->rightSon, nivel+1);;
     }
+}
+
+void ABB::preOrden(NodeABB *node, int nivel){
+
+    if (node != nullptr){
+         qDebug() << node->person->id;
+         preOrden(node->leftSon,nivel+1);
+         preOrden(node->rightSon,nivel+1);
+    }
+
 }
