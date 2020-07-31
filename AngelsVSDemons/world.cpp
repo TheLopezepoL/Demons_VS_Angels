@@ -20,7 +20,7 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
     this->peopleList = new Humans();
     this->paises = new DLinkList<Counter>();
     this->paisesGA = new DLinkList<Counter>();
-    this->heaven = new Heaven(peopleList);
+    this->heaven = new Heaven();
     countryList();
     Demon* newHell[7] = {new Demon("Lucifer", "Orgullo", 0, peopleList), new Demon("Belcebu", "Envidia", 1, peopleList), new Demon("Satan", "Ira", 2, peopleList), new Demon("Abadon", "Pereza", 3, peopleList), new Demon("Mammon", "Codicia", 4, peopleList), new Demon("Belfegor", "Gula", 5, peopleList), new Demon("Asmodeo", "Lujuria", 6, peopleList)};
     for (int i = 0; i < 7; i++)
@@ -489,7 +489,7 @@ int World::getCantContinent(QString continent){
     }
     return i;
 
-
+}
 int World::quantDeadHumans(){
     int total = 0;
     for (int i = 0; i < 6; i++)

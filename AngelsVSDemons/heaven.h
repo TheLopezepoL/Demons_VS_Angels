@@ -14,7 +14,7 @@ struct Heaven{
     Heaven();
     //Methods
     //Salvacion
-    void salvation();
+    void salvation(Demon *hell[7]);
     void sendEmail();
 
 
