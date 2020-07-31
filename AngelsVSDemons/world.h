@@ -25,6 +25,10 @@ struct World{
     QString cantPecadosCont = "";
     QString cantGA = "";
     //////////////////////////////////////
+    int cantidadCadaPecado[7] = {0,0,0,0,0,0,0};
+    int cantidadCadaBuenaAccion[7] = {0,0,0,0,0,0,0};
+    QString goodActions[7] = {"HONRA","AYUDA","FELICIDAD","LABORIOSIDAD","GENEROSIDAD","SATISFACCION","HONESTIDAD"};
+    //////////////////////////////////////
     //ARRAYS/////////////////////
     //////////////////////////////////////
     QVector <int> ids;
@@ -49,6 +53,12 @@ struct World{
     World(){}
     //////////////////////////////////////
     //Methods
+    //Set winner
+    QString setWinner();
+    //Da la cantidad de Pecados de cada pecado
+    QString cantidadPecadosQString();
+    //Da la cantidad de cada una de las Buenas Acciones
+    QString cantidadBuenasAccionesQS();
     //Creador de listas nombres,apellidos,profesiones,...
     void preStart(QString path);
     //Sort de Paises
@@ -91,7 +101,6 @@ struct World{
     DLinkList<Counter> *top5LessSins();
     //Top de 5 paises con pocas buenas acciones
     DLinkList<Counter> *top5LessGA();
-
     //GET MAPA
     QStringList getMapa(bool key);
     int getCantContinent(QString continent);

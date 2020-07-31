@@ -40,6 +40,8 @@ private slots:
 
     void on_Maps2_clicked(bool checked);
 
+    void on_SetWInner_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };

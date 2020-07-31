@@ -192,6 +192,7 @@ void World::sinGenerator(){
     while (tmp != nullptr){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
+            cantidadCadaPecado[i] = cantidadCadaPecado[i] + random;
             counterSins = counterSins + random;
             tmp->person->addSin(i,random);
             tmp->person->addSinAUX(i,random);
@@ -211,6 +212,7 @@ void World::blessGenerator(){
     while(tmp != nullptr){
         for (int i = 0; i<7 ; ++i){
             int random = StructCreator::randomInit(0,100);
+            cantidadCadaBuenaAccion[i] = cantidadCadaBuenaAccion[i] + random;
             counterGA = counterGA + random;
             tmp->person->addAction(i,random);
             this->addCountryGA(random,tmp->person->country);
@@ -502,4 +504,38 @@ QString World::selectDemon(int x){
     info.append("Demonio: " + hell[x]->name + "\tPecado:" + hell[x]->sin);
     return info;
 
+}
+
+QString World::cantidadPecadosQString(){
+    QString msg = "\nPECADOS-----------------------------------------------";
+    for (int i = 0 ; i < 7 ; ++i){
+        msg = msg + "\n" + "El pecado " + hell[i]->sin + " tiene un total de " + QString::number(cantidadCadaPecado[i]);
+    }
+    return msg;
+}
+
+QString World::cantidadBuenasAccionesQS(){
+    QString msg = "\nBUENAS ACCIONES-----------------------------------------------";
+    for (int i = 0 ; i < 7 ; ++i){
+        msg = msg + "\n" + "La buena accion " + goodActions[i] + " tiene un total de " + QString::number(cantidadCadaBuenaAccion[i]);
+    }
+    return msg;
+}
+
+QString World::setWinner(){
+    int neto = 0;
+    QString msg = "NETOS------------------------------------------------";
+    for (int i = 0 ; i < 7 ; ++i){
+        neto = neto + (cantidadCadaBuenaAccion[i] - cantidadCadaPecado[i]);
+        msg = msg + "\n" + "La buena accion " + goodActions[i] + " y el pecado " + hell[i]->sin + " tienen un neto de: " +  QString::number(cantidadCadaBuenaAccion[i] - cantidadCadaPecado[i]);
+    }
+    msg = msg + cantidadPecadosQString() + cantidadBuenasAccionesQS();
+    if (neto >= 0){
+        msg = msg + "\n---------------------EL CIELO HA GANADO!---------------------";
+        return msg;
+    }
+    else if (neto < 0) {
+        msg = msg + "\n---------------------EL INFIERNO HA GANADO!---------------------";
+        return msg;
+    }
 }

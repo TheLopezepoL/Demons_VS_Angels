@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -30,7 +29,6 @@ public:
     QPushButton *Start;
     QPushButton *Birth;
     QPushButton *SinGenerator;
-    QLineEdit *CantidadHumans;
     QPushButton *GAGenerator;
     QPushButton *SinMenu;
     QPushButton *GAMenu;
@@ -39,9 +37,10 @@ public:
     QTextEdit *textEdit;
     QPushButton *ABB;
     QPushButton *Hell;
-    QPushButton *Heaven;
+    QPushButton *SetWInner;
     QPushButton *Maps;
     QPushButton *Maps2;
+    QTextEdit *cant;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -70,9 +69,6 @@ public:
         SinGenerator->setObjectName(QString::fromUtf8("SinGenerator"));
         SinGenerator->setGeometry(QRect(60, 410, 351, 71));
         SinGenerator->setFlat(true);
-        CantidadHumans = new QLineEdit(centralwidget);
-        CantidadHumans->setObjectName(QString::fromUtf8("CantidadHumans"));
-        CantidadHumans->setGeometry(QRect(140, 140, 161, 71));
         GAGenerator = new QPushButton(centralwidget);
         GAGenerator->setObjectName(QString::fromUtf8("GAGenerator"));
         GAGenerator->setGeometry(QRect(60, 510, 351, 121));
@@ -104,10 +100,10 @@ public:
         Hell->setObjectName(QString::fromUtf8("Hell"));
         Hell->setGeometry(QRect(1320, 410, 181, 91));
         Hell->setFlat(true);
-        Heaven = new QPushButton(centralwidget);
-        Heaven->setObjectName(QString::fromUtf8("Heaven"));
-        Heaven->setGeometry(QRect(1320, 300, 181, 91));
-        Heaven->setFlat(true);
+        SetWInner = new QPushButton(centralwidget);
+        SetWInner->setObjectName(QString::fromUtf8("SetWInner"));
+        SetWInner->setGeometry(QRect(1290, 300, 231, 91));
+        SetWInner->setFlat(true);
         Maps = new QPushButton(centralwidget);
         Maps->setObjectName(QString::fromUtf8("Maps"));
         Maps->setGeometry(QRect(1280, 530, 241, 81));
@@ -116,6 +112,9 @@ public:
         Maps2->setObjectName(QString::fromUtf8("Maps2"));
         Maps2->setGeometry(QRect(1280, 630, 241, 81));
         Maps2->setFlat(true);
+        cant = new QTextEdit(centralwidget);
+        cant->setObjectName(QString::fromUtf8("cant"));
+        cant->setGeometry(QRect(140, 140, 161, 70));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -147,7 +146,7 @@ public:
         Damnation->setText(QString());
         ABB->setText(QString());
         Hell->setText(QString());
-        Heaven->setText(QString());
+        SetWInner->setText(QString());
         Maps->setText(QString());
         Maps2->setText(QString());
     } // retranslateUi

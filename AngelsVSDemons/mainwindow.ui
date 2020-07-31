@@ -87,16 +87,6 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QLineEdit" name="CantidadHumans">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>140</y>
-      <width>161</width>
-      <height>71</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="GAGenerator">
     <property name="geometry">
      <rect>
@@ -219,12 +209,12 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="Heaven">
+   <widget class="QPushButton" name="SetWInner">
     <property name="geometry">
      <rect>
-      <x>1320</x>
+      <x>1290</x>
       <y>300</y>
-      <width>181</width>
+      <width>231</width>
       <height>91</height>
      </rect>
     </property>
@@ -265,6 +255,16 @@
     </property>
     <property name="flat">
      <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="cant">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>140</y>
+      <width>161</width>
+      <height>70</height>
+     </rect>
     </property>
    </widget>
   </widget>

@@ -71,11 +71,12 @@ MainWindow::MainWindow(QWidget *parent)
     QIcon  hell(button10);
     ui->Hell->setIcon(hell);
     ui->Hell->setIconSize(button6.size());
-    //BOTON Heaven----------------------------------------------------------------
-    QPixmap button11( path +"/heaven.png");
+    //BOTON Winner----------------------------------------------------------------
+    QPixmap button11( path +"/winner.png");
     QIcon  heaven(button11);
-    ui->Heaven->setIcon(heaven);
-    ui->Heaven->setIconSize(button6.size());
+    ui->SetWInner->setIcon(heaven);
+    ui->SetWInner->setIconSize(button6.size());
+    ui->SetWInner->setCheckable(true);
     //TEXT BOX----------------------------------------------------------------
     ui->textEdit->setReadOnly(true);
     //BOTON Maps----------------------------------------------------------------
@@ -107,21 +108,22 @@ void MainWindow::on_Start_clicked()
 //NACIMIENTO
 void MainWindow::on_Birth_clicked()
 {
+    QString textEditText = ui->cant->toPlainText();
+    int x = QString::toInt(textEditText);
     this->mundo->birth(1000);
     ui->textEdit->setText(mundo->binnacle);
-    //this->mundo->imprimirHumanos();
 }
 //GENERA PECADOS
 void MainWindow::on_SinGenerator_clicked()
 {
     this->mundo->sinGenerator();
-    this->mundo->imprimirHumanos();
+    //this->mundo->imprimirHumanos();
 }
 //GENERA BUENAS ACCIONES
 void MainWindow::on_GAGenerator_clicked()
 {
     this->mundo->blessGenerator();
-    this->mundo->imprimirHumanos();
+    //this->mundo->imprimirHumanos();
 }
 //VER MAPA
 void MainWindow::on_Maps_clicked(bool checked)
@@ -187,3 +189,17 @@ void MainWindow::on_ABB_clicked(bool checked)
 }
 
 
+
+void MainWindow::on_SetWInner_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            ui->textEdit->clear();
+           QString msg = mundo->setWinner();
+            ui->textEdit->setText(msg);
+        }
+        else {
+            ui->textEdit->clear();
+        }
+    }
+}
