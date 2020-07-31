@@ -109,8 +109,8 @@ void MainWindow::on_Start_clicked()
 void MainWindow::on_Birth_clicked()
 {
     QString textEditText = ui->cant->toPlainText();
-    int x = QString::toInt(textEditText);
-    this->mundo->birth(1000);
+    int x = textEditText.toInt();
+    this->mundo->birth(x);
     ui->textEdit->setText(mundo->binnacle);
 }
 //GENERA PECADOS
