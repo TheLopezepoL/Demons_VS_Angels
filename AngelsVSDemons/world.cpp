@@ -106,15 +106,20 @@ void World::imprimirHumanos(){
  */
 void World::abbGenerator(){
     ABB *nuevo = new ABB();
-    int i = getPowerTwo(population*0.01);
+    int i = getPowerTwo(population*0.01)-3;
+    qDebug() << i;
     Person *mid = peopleList->returnHuman(population/2);
     nuevo->insertar(mid);
-    //mid->imprimir();
+    Person *first = peopleList->first->person;
+    Person *last = peopleList->last->person;
     while ( i != 0) {
-        int random = StructCreator::randomInit(0,population-1);
+        int random = StructCreator::randomInit(1,population-2);
+
         nuevo->insertar(peopleList->returnHuman(random));
         --i;
     }
+    nuevo->insertar(first);
+    nuevo->insertar(last);
     this->abb = nuevo;
     tree = tree + "LA CANTIDAD DE NODOS ES: " + QString::number(nuevo->nodeCounter(nuevo->root)) + "\n";
 }
@@ -129,11 +134,9 @@ void World::abbGenerator(){
 int World::getPowerTwo(int n){
     int i = 0;
     while(i < n){
-        if (qPow(2,i) > n)
+        if (qPow(2,i) >= n)
             return qPow(2,i);
-        else if(qPow(2,i) == n)
-            return qPow(2,i);
-        ++i;
+        i++;
     }
     return 0;
 }
