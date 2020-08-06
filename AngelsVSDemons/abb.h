@@ -1,14 +1,15 @@
 #ifndef ABB_H
 #define ABB_H
 #include "person.h"
+#include "humans.h"
 #include <QDebug>
 
 struct NodeABB{
   //Attr.
   NodeABB *leftSon,*rightSon;
-  Person* person;
+  NodeHuman* person;
   //Constr.
-  NodeABB(Person* person){
+  NodeABB(NodeHuman* person){
       leftSon = rightSon = nullptr;
       this->person = person;
   }
@@ -22,8 +23,8 @@ struct ABB{
         root = nullptr;
     }
     //Methods
-    void insertar(Person*);
-    NodeABB *insertarAux(Person* person, NodeABB *node);
+    void insertar(NodeHuman*);
+    NodeABB *insertarAux(NodeHuman* person, NodeABB *node);
     int nodeCounter(NodeABB *node);
     NodeABB *search(int valor , NodeABB *node);
     QString posOrden(NodeABB *node, int nivel);

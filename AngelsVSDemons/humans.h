@@ -27,7 +27,8 @@ struct Humans{
     bool isEmpty();
     int length();
     void insertPos(Person *person);
-    Person *returnHuman(int pos);
+    NodeHuman *returnHuman(int pos);
+    void insertBySins(Person* person);
 
     
 };

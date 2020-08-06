@@ -2,6 +2,8 @@
 
 DemonicHeap::DemonicHeap()
 {
+    for (int i = 0; i < 10000; i++)
+        this->array[i] = nullptr;
     len = 0;
 }
 

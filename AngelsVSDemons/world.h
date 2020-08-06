@@ -65,7 +65,7 @@ struct World{
     void sortListSins();
     void sortListGoodActions();
     //InsertsortList
-    void insertSL(Node<Counter> *x,Node<Counter> *y);
+    void iCRnsertSL(Node<Counter> *x,Node<Counter> *y);
     //Creador de Lista Paises
     void countryList();
     void printCountryListSins();
@@ -110,6 +110,27 @@ struct World{
     int quantDeadHumans();
     //Return nombre y pecado de x demonio
     QString selectDemon(int x);
+
+    //Buscar por ID
+    Person* searchHuman(int id); // Llamada a la funcion simplificada
+    Person* searchHuman(int id, NodeABB* node); // Busca en el arbol
+    Person* searchHuman(int id, NodeHuman* ptr); // Busca en la lista desde el nodo del arbol mas cercano
+    //Crea una lista con toda la familia del ID
+    DLinkList<Person>* getFamily(int id);
+    //Mostrar Pecados Familia (Por ID)
+    QString familySins(int id);
+    //Mostrar Buenas Acciones Familia (Por ID)
+    QString familyGoodActions(int id);
+    //Mostrar Infierno (Por demonio)
+    QString showHell(int demonIdx);
+    //Mostrar Cielo (Por Hash Table)
+    QString showHeaven();
+    //Buscar por Apellido y Ciudad (Aunque no esten relacionados de sangre)
+    QString searchFamily(QString secondName, QString country);
+    //Busca por categoria y devuelve la lista ordenada por pecados
+    Humans* searchBy(int category, QString data);
+    //Imprime la lista de humanos (para la anterior)
+    QString sortListOf(Humans* list);
 
 
     //Mapa de Continentes

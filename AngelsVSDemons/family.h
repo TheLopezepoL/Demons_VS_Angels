@@ -18,6 +18,7 @@ struct Family{
     Person* saveHuman(Person* person, int sin);
     void addHuman(Person* person, int sin);
     void mostrarFamilia();
+    QString stringFamily();
 };
 
 #endif // FAMILY_H

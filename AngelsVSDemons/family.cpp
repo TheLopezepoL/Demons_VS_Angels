@@ -46,3 +46,15 @@ void Family::mostrarFamilia(){
         person = person->nxt;
     }
 }
+
+QString Family::stringFamily(){
+    QString text = "~~~Familia " + this->secondName + " de " + this->country + "~~~\n";
+    text.append("*Familiares*\n");
+    Node<Person>* person = this->family->first;
+    while(person != nullptr){
+        text.append(person->data->showPersonalData());
+        text.append("\n*************************\n");
+        person = person->nxt;
+    }
+    return text;
+}

@@ -24,7 +24,7 @@ void World::preStart(QString path/*,Humans peopleList, Heaven *heaven, Hell *hel
     countryList();
     Demon* newHell[7] = {new Demon("Lucifer", "Orgullo", 0, peopleList), new Demon("Belcebu", "Envidia", 1, peopleList), new Demon("Satan", "Ira", 2, peopleList), new Demon("Abadon", "Pereza", 3, peopleList), new Demon("Mammon", "Codicia", 4, peopleList), new Demon("Belfegor", "Gula", 5, peopleList), new Demon("Asmodeo", "Lujuria", 6, peopleList)};
     for (int i = 0; i < 7; i++)
-            this->hell[i] = newHell[i];
+        this->hell[i] = newHell[i];
 }
 
 /*  ALGORTIMO DE NACIMIENTO PRIMARY
@@ -108,10 +108,10 @@ void World::abbGenerator(){
     ABB *nuevo = new ABB();
     int i = getPowerTwo(population*0.01)-3;
     qDebug() << i;
-    Person *mid = peopleList->returnHuman(population/2);
+    NodeHuman *mid = peopleList->returnHuman(population/2);
     nuevo->insertar(mid);
-    Person *first = peopleList->first->person;
-    Person *last = peopleList->last->person;
+    NodeHuman *first = peopleList->first;
+    NodeHuman *last = peopleList->last;
     while ( i != 0) {
         int random = StructCreator::randomInit(1,population-2);
 
@@ -161,9 +161,9 @@ void World::setSonsAux(Person *person){
             if ( !son->hasFather() and !son->verifySon(person) and(son->secondName == person->secondName) and (son->country == person->country) and (son->id != person->id)) {
                 person->addSon(son);
                 --i;
-                }
-            possibleSon = possibleSon->nxt;
             }
+            possibleSon = possibleSon->nxt;
+        }
     }
     //person->imprimir();
     //person->printHijos();
@@ -541,4 +541,174 @@ QString World::setWinner(){
         msg = msg + "\n---------------------EL INFIERNO HA GANADO!---------------------";
         return msg;
     }
+    return msg;
 }
+
+Person* World::searchHuman(int id){ return searchHuman(id, this->abb->root); }
+
+Person* World::searchHuman(int id, NodeABB *node){
+    if (node->person->person->id == id)
+        return node->person->person;
+    else if (node->person->person->id > id){
+        if (node->leftSon != nullptr)
+            return searchHuman(id, node->leftSon);
+        else
+            return searchHuman(id, node->person);
+    }
+    else {
+        if (node->rightSon != nullptr)
+            return searchHuman(id, node->rightSon);
+        else
+            return searchHuman(id, node->person);
+    }
+}
+
+Person* World::searchHuman(int id, NodeHuman *ptr){
+    bool direction = ptr->person->id < id; // Si va hacia la derecha = true : izquierda = false
+    while (ptr != nullptr){
+        if (ptr->person->id == id)
+            return ptr->person;
+        if (direction){
+            if (ptr->person->id > id)
+                return nullptr; // No existe el id
+            ptr = ptr->nxt; // Sigue buscando
+        }
+        else { // Mismo proceso por si tiene que ir para atras
+            if (ptr->person->id > id)
+                return nullptr;
+            ptr = ptr->prv;
+        }
+    }
+    return nullptr;
+}
+
+DLinkList<Person>* World::getFamily(int id){
+    Person* human = searchHuman(id);
+    DLinkList<Person>* family = new DLinkList<Person>();
+    if (human != nullptr) {
+        family->append(human);
+        Node<Person>* ptr = family->first;
+        while(ptr !=  nullptr){
+            Node<Person>* son = ptr->data->sons->first;
+            while(son !=  nullptr){
+                family->append(son->data);
+                son = son->nxt;
+            }
+            ptr = ptr->nxt;
+        }
+    }
+    else
+        qDebug() << "No se encontro al humano.";
+    return family;
+}
+
+QString World::familySins(int id){
+    DLinkList<Person>* family = getFamily(id);
+    QString text = "";
+    Node<Person>* ptr = family->first;
+    while (ptr != nullptr){
+        text.append(ptr->data->showPersonalData());
+        text.append(ptr->data->showSins());
+        text.append("/n----------------------------------------------/n");
+        ptr = ptr->nxt;
+    }
+    return text;
+}
+
+
+QString World::familyGoodActions(int id){
+    DLinkList<Person>* family = getFamily(id);
+    QString text = "";
+    Node<Person>* ptr = family->first;
+    while (ptr != nullptr){
+        text.append(ptr->data->showPersonalData());
+        text.append(ptr->data->showGoodActions());
+        text.append("/n----------------------------------------------/n");
+        ptr = ptr->nxt;
+    }
+    return text;
+}
+
+QString World::showHell(int demonIdx){
+    Demon* demon = this->hell[demonIdx];
+    if (demon != nullptr){
+        QString text = "Infierno de " + demon->name + "\n";
+        text.append("Reino de la " + demon->sin + "\n");
+        text.append("Humanos castigados: " + QString::number(demon->quant) + "\n");
+        for (int i = 0; i < 10000; i++){
+            if (demon->heap->array[i] != nullptr)
+                text.append(demon->heap->array[i]->stringFamily());
+            else
+                break;
+        }
+        return text;
+    }
+    return "";
+}
+
+QString World::showHeaven(){
+    Hash* hash = this->heaven->souls;
+    if (hash != nullptr){
+        QString text = "~~~Cielo~~~\n";
+        for (int i = 0; i < 1000; i++){
+            Node<Soul>* ptr = hash->savedHumans[i]->first;
+            while (ptr != nullptr){
+                text.append("ANGEL :" + ptr->data->angel->name + ptr->data->angel->version + "\n");
+                text.append("Humano :\n" + ptr->data->human->showPersonalData());
+                ptr = ptr->nxt;
+            }
+        }
+        return text;
+    }
+    return "";
+}
+
+QString World::searchFamily(QString secondName, QString country){
+    NodeHuman* ptr = this->peopleList->first;
+    int alive = 0;
+    int dead = 0;
+    int saved = 0;
+    Humans* humans = new Humans();
+
+    //Guardar todos los humanos con mismo pais y apellido
+    while (ptr != nullptr){
+        if (ptr->person->secondName == secondName && ptr->person->country == country){
+            humans->insertBySins(ptr->person);
+            switch(ptr->person->state){
+            case VIVO:
+                alive++;
+                break;
+            case CONDENADO:
+                dead++;
+                break;
+            case SALVADO:
+                saved++;
+                break;
+            default:
+                break;
+            }
+        }
+        ptr = ptr->nxt;
+    }
+
+    //Mostrar porcentajes
+    QString text = "Humanos " + secondName + " de " + country + "\n";
+    text.append("*PORCENTAJES*\n");
+    text.append("COINCIDENCIAS ENCONTRADAS: " + QString::number(alive+dead+saved) + "\n");
+    text.append("VIVOS: " + QString::number((alive*100)/(alive+dead+saved)) + "%\n");
+    text.append("CONDENADOS: " + QString::number((dead*100)/(alive+dead+saved)) + "%\n");
+    text.append("SALVADOS: " + QString::number((saved*100)/(alive+dead+saved)) + "%\n");
+    text.append("\n*HUMANOS*\n");
+
+    //Recorrer la lista imprimiendo los humanos seleccionados
+    ptr = humans->first;
+    while (ptr != nullptr){
+        text.append(ptr->person->humanInfo());
+        ptr = ptr->nxt;
+    }
+
+    return text;
+}
+
+
+

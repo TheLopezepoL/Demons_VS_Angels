@@ -7,17 +7,17 @@
  *  D: Agrega un objeto al arbol
  */
 //PRIMARY
-void ABB::insertar(Person* person){
+void ABB::insertar(NodeHuman* person){
     root = insertarAux(person,root);
 }
 //AUXILIAR
-NodeABB * ABB::insertarAux(Person* person, NodeABB *node){
+NodeABB * ABB::insertarAux(NodeHuman* person, NodeABB *node){
     if (node == nullptr)
         return new NodeABB(person);
-    else if (node->person->id < person->id) {
+    else if (node->person->person->id < person->person->id) {
          node->rightSon = insertarAux(person,node->rightSon);
     }
-    else if (node->person->id > person->id){
+    else if (node->person->person->id > person->person->id){
          node->leftSon = insertarAux(person,node->leftSon);
     }
     return node;
@@ -44,10 +44,10 @@ int ABB::nodeCounter(NodeABB *node){
 NodeABB *ABB::search(int valor, NodeABB *node){
     if (node == nullptr)
         return nullptr;
-    else if (node->person->id == valor) {
+    else if (node->person->person->id == valor) {
         return node;
     }
-    else if (node->person->id < valor)
+    else if (node->person->person->id < valor)
         return search(valor,node->rightSon);
     else{
         return search(valor,node->leftSon);
@@ -62,15 +62,14 @@ QString ABB::binnacle(){
 QString ABB::posOrden(NodeABB *node, int nivel){
     if (node == nullptr)
         return "";
-    else if (node != nullptr){
-        return "Node ID: " + QString::number(node->person->id) + " \t" + "\n" + posOrden(node->leftSon, nivel+1) + posOrden(node->rightSon, nivel+1);;
-    }
+    else
+        return "Node ID: " + QString::number(node->person->person->id) + " \t" + "\n" + posOrden(node->leftSon, nivel+1) + posOrden(node->rightSon, nivel+1);
 }
 
 void ABB::preOrden(NodeABB *node, int nivel){
 
     if (node != nullptr){
-         qDebug() << node->person->id;
+         qDebug() << node->person->person->id;
          preOrden(node->leftSon,nivel+1);
          preOrden(node->rightSon,nivel+1);
     }

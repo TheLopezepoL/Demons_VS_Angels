@@ -94,9 +94,16 @@ struct Person{
     int totalSins();
     //ESCRIBIR CONDENA
     QString demonicBinnacle(int sinIndx);
-
-
-
+    //Escribir Persona
+    QString humanInfo();
+    //Escribir Datos Personales y Estado
+    QString showPersonalData();
+    //Escribir Hijos
+    QString showSons();
+    //Escribir Pecados;
+    QString showSins();
+    //Escribir Buenas Acciones;
+    QString showGoodActions();
 };
 
 #endif // PERSONA_H

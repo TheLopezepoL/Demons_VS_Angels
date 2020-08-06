@@ -235,13 +235,87 @@ QString Person::demonicBinnacle(int sinIndx){
     return binnacle;
 }
 
+QString Person::humanInfo(){
+    QString info = "";
 
+    //Info Personal
+    info.append(showPersonalData());
 
+    //Pecados
+    info.append(showSins());
 
+    //Buenas Acciones
+    info.append(showGoodActions());
 
+    //Hijos
+    info.append(showSons());
 
+    //FIN
+    info.append("\n-----------------------------------------\n");
+    return info;
+}
 
+QString Person::showSins(){
+    QString info = "";
 
+    info.append("~LISTA DE PECADOS~\n");
+    QString sins[7] = {"ORGULLO: ","ENVIDIA: ","IRA: ","PEREZA: ","CODICIA: ","GLOTONERIA: ","LUJURIA: "};
+    for (int i = 0; i < 7; i++)
+        info.append(sins[i] + QString::number(this->sins[i]) + "\n");
 
+    return info;
+}
 
+QString Person::showGoodActions(){
+    QString info = "";
 
+    info.append("~LISTA DE BUENAS ACCIONES~\n");
+    QString goodActions[7] = {"HONRA: ","AYUDA: ","FELICIDAD: ","LABORIOSIDAD: ","GENEROSIDAD: ","SATISFACCION: ","HONESTIDAD: "};
+    for (int i = 0; i < 7; i++)
+        info.append(goodActions[i] + QString::number(this->goodActions[i]) + "\n");
+
+    return info;
+}
+
+QString Person::showSons(){
+    QString info = "";
+
+    int i = 1;
+    info.append("~LISTA DE HIJOS~\n");
+    Node<Person> *ptr = this->sons->first;
+    while (ptr != nullptr){
+        info.append("Hijo #" + QString::number(i++));
+        info.append("\t::\tID: " + QString::number(ptr->data->id) + "\n");
+        ptr = ptr->nxt;
+    }
+
+    return info;
+}
+
+QString Person::showPersonalData(){
+    QString info = "";
+
+    info.append("ID: " + QString::number(this->id) + "\n");
+    info.append("Nombre: " + this->name + "\n");
+    info.append("Apellido: " + this->secondName + "\n");
+    info.append("Carrera: " + this->career + "\n");
+    info.append("Creencia: " + this->beliefs + "\n");
+    info.append("Pais: " + this->country + "\n");
+
+    //Estado (VIVO, CONDENADO, SALVADO)
+    switch (this->state){
+    case VIVO:
+        info.append("Estado: VIVO \n");
+        break;
+    case CONDENADO:
+        info.append("Estado: CONDENADO \n");
+        break;
+    case SALVADO:
+        info.append("Estado: SALVADO \n");
+        break;
+    default:
+        break;
+    }
+
+    return info;
+}
