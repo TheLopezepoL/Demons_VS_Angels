@@ -29,6 +29,7 @@ struct Humans{
     void insertPos(Person *person);
     NodeHuman *returnHuman(int pos);
     void insertBySins(Person* person);
+    void insertByGA(Person* person);
 
     
 };
