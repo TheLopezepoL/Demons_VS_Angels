@@ -21,6 +21,15 @@ private slots:
 
     void on_top5_clicked(bool checked);
 
+    void on_familyState_clicked(bool checked);
+
+    void on_hLS_clicked(bool checked);
+
+    void on_CFS_clicked(bool checked);
+
+    void on_familyStats_clicked(bool checked);
+
+
 private:
     Ui::GAMenu *ui;
 };

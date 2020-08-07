@@ -68,3 +68,52 @@ void GAMenu::on_top5_clicked(bool checked)
         }
     }
 }
+
+void GAMenu::on_familyState_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString textEditText = ui->id->toPlainText();
+            int var = textEditText.toInt();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->familyGoodActions(var);
+            ui->screen->setText(msg);
+        }
+        else {
+            ui->screen->clear();
+        }
+    }
+}
+
+void GAMenu::on_hLS_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString id = ui->id->toPlainText();
+            int var = id.toInt();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->familySins(var);
+            ui->screen->setText(msg);
+        }
+        else {
+            ui->screen->clear();
+        }
+    }
+}
+
+void GAMenu::on_CFS_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString id = ui->id->toPlainText();
+            int var = id.toInt();
+            QString sName = ui->sencondN->toPlainText();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->searchFamily(sName,id);
+            ui->screen->setText(msg);
+        }
+        else {
+            ui->screen->clear();
+        }
+    }
+}
