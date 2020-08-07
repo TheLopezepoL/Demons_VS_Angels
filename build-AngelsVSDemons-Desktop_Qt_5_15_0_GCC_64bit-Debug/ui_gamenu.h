@@ -42,11 +42,11 @@ public:
         GAMenu->resize(1414, 938);
         top10 = new QPushButton(GAMenu);
         top10->setObjectName(QString::fromUtf8("top10"));
-        top10->setGeometry(QRect(220, 580, 241, 81));
+        top10->setGeometry(QRect(230, 690, 241, 81));
         top10->setFlat(true);
         top5 = new QPushButton(GAMenu);
         top5->setObjectName(QString::fromUtf8("top5"));
-        top5->setGeometry(QRect(220, 670, 241, 81));
+        top5->setGeometry(QRect(230, 780, 241, 81));
         top5->setFlat(true);
         label = new QLabel(GAMenu);
         label->setObjectName(QString::fromUtf8("label"));
@@ -286,7 +286,7 @@ public:
         label->setText(QString());
         familyState->setText(QCoreApplication::translate("GAMenu", "Family State", nullptr));
         secondName->setText(QCoreApplication::translate("GAMenu", "Second N.", nullptr));
-        hLS->setText(QCoreApplication::translate("GAMenu", "Highest to Lower Sinners", nullptr));
+        hLS->setText(QCoreApplication::translate("GAMenu", "Highest to Lower Nice People", nullptr));
         CFS->setText(QCoreApplication::translate("GAMenu", "Country/Family", nullptr));
         pais->setText(QCoreApplication::translate("GAMenu", "Country:", nullptr));
         IDSig->setText(QCoreApplication::translate("GAMenu", "ID:", nullptr));

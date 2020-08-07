@@ -584,6 +584,7 @@ Person* World::searchHuman(int id, NodeHuman *ptr){
 
 DLinkList<Person>* World::getFamily(int id){
     Person* human = searchHuman(id);
+    human->printHijos();
     DLinkList<Person>* family = new DLinkList<Person>();
     if (human != nullptr) {
         family->append(human);
@@ -609,7 +610,7 @@ QString World::familySins(int id){
     while (ptr != nullptr){
         text.append(ptr->data->showPersonalData());
         text.append(ptr->data->showSins());
-        text.append("/n----------------------------------------------/n");
+        text.append("\n----------------------------------------------\n");
         ptr = ptr->nxt;
     }
     return text;
@@ -623,7 +624,7 @@ QString World::familyGoodActions(int id){
     while (ptr != nullptr){
         text.append(ptr->data->showPersonalData());
         text.append(ptr->data->showGoodActions());
-        text.append("/n----------------------------------------------/n");
+        text.append("\n----------------------------------------------\n");
         ptr = ptr->nxt;
     }
     return text;
@@ -663,7 +664,7 @@ QString World::showHeaven(){
         for (int i = 0; i < 1000; i++){
             Node<Soul>* ptr = hash->savedHumans[i]->first;
             while (ptr != nullptr){
-                text.append("\nANGEL :" + ptr->data->angel->name + ptr->data->angel->version + "\n");
+                text.append("\nANGEL :" + ptr->data->angel->name + " "+ QString::number(ptr->data->angel->version) + "\n");
                 text.append("Humano :\n" + ptr->data->human->showPersonalData());
                 ptr = ptr->nxt;
             }
@@ -727,7 +728,12 @@ void World::printAllHumansInfo(bool sins){
         text.append("\n~ ~ ~ " + grupos[i] + " ~ ~ ~\n");
         text.append(printAllHumansInfo(i, sins));
     }
-    FileManager::writeFileN(text, "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfo.txt");
+    if (sins)
+        FileManager::writeFileN(text, "/home/rev/Documents/GitHub/Demons_VS_Angels/allInfoSins.txt");
+    else if (!sins) {
+        FileManager::writeFileN(text, "/home/rev/Documents/GitHub/Demons_VS_Angels/allInfoGoodActions.txt");
+    }
+    //"/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfo.txt"
 }
 
 QString World::printAllHumansInfo(int category, bool sins){
