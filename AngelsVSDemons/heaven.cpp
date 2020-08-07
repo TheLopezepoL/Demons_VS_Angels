@@ -7,7 +7,8 @@ Heaven::Heaven(){
 }
 
 void Heaven::sendEmail(){
-    QString root = "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/Salvados/";
+    //QString root = "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/Salvados/";
+    QString root = "/home/rev/Documents/GitHub/Demons_VS_Angels/Salvados/";
     root.append("Salvacion_" + QDateTime::currentDateTime().toString("yyyyMMd_hms"));
     FileManager::writeFileN(binnacle, root);
     Email::sendEmail("Salvacion", binnacle);
@@ -25,4 +26,5 @@ void Heaven::salvation(Demon *hell[7]){
             binnacle.append("\tPor el angel " + angel->data->angel->name + QString::number(angel->data->angel->version) + "\tGeneracion: " + QString::number(angel->data->angel->gen));
             angel = angel->nxt;
         }
+        sendEmail();
 }

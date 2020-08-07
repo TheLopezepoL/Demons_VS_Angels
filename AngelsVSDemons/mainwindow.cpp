@@ -71,6 +71,13 @@ MainWindow::MainWindow(QWidget *parent)
     QIcon  hell(button10);
     ui->Hell->setIcon(hell);
     ui->Hell->setIconSize(button6.size());
+    ui->Hell->setCheckable(true);
+    //BOTON Heaven----------------------------------------------------------------
+    QPixmap button1000( path +"/heaven.png");
+    QIcon  heaven1(button1000);
+    ui->Heaven->setIcon(heaven1);
+    ui->Heaven->setIconSize(button6.size());
+    ui->Heaven->setCheckable(true);
     //BOTON Winner----------------------------------------------------------------
     QPixmap button11( path +"/winner.png");
     QIcon  heaven(button11);
@@ -171,6 +178,7 @@ void MainWindow::on_SinMenu_clicked()
 void MainWindow::on_GAMenu_clicked()
 {
     GAMenu *gaMenu = new GAMenu(this);
+    gaMenu->mundo = mundo;
     gaMenu->show();
 }
 
@@ -196,6 +204,45 @@ void MainWindow::on_SetWInner_clicked(bool checked)
         if (checked){
             ui->textEdit->clear();
            QString msg = mundo->setWinner();
+            ui->textEdit->setText(msg);
+        }
+        else {
+            ui->textEdit->clear();
+        }
+    }
+}
+
+void MainWindow::on_Damnation_clicked()
+{
+
+    this->mundo->claimSinners();
+}
+
+void MainWindow::on_Salvation_clicked()
+{
+    this->mundo->heaven->salvation(this->mundo->hell);
+}
+
+void MainWindow::on_Hell_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            ui->textEdit->clear();
+           QString msg = mundo->hellPrint();
+            ui->textEdit->setText(msg);
+        }
+        else {
+            ui->textEdit->clear();
+        }
+    }
+}
+
+void MainWindow::on_Heaven_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            ui->textEdit->clear();
+           QString msg = mundo->showHeaven();
             ui->textEdit->setText(msg);
         }
         else {

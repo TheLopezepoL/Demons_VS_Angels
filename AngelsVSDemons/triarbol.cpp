@@ -51,7 +51,7 @@ void TriArbol::newAngels(Demon* hell[7]){
            Angel *nuevo = new Angel(ranName(),version,times);
 
            // Salvar
-           int demon = StructCreator::randomInit(0, 7);
+           int demon = StructCreator::randomInit(0, 6);
            Family* family = hell[demon]->min();
            Node<Person>* person = family->family->first;
            Node<Person>* min = family->family->first;

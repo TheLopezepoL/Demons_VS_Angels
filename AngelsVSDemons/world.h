@@ -15,6 +15,7 @@ struct World{
     Heaven *heaven;
     //////////////////////////////////////
     int population = 0;
+    int populationAlive = 0;
     int counterSins = 0;
     int counterGA = 0;
     //////////////////////////////////////
@@ -105,12 +106,12 @@ struct World{
     QStringList getMapa(bool key);
     int getCantContinent(QString continent);
     ///////////////////////////////////////////
-
     //Cantidad de Humanos contenados
     int quantDeadHumans();
     //Return nombre y pecado de x demonio
     QString selectDemon(int x);
-
+    //CLAIM SINNERS
+    void claimSinners();
     //Buscar por ID
     Person* searchHuman(int id); // Llamada a la funcion simplificada
     Person* searchHuman(int id, NodeABB* node); // Busca en el arbol
@@ -122,6 +123,7 @@ struct World{
     //Mostrar Buenas Acciones Familia (Por ID)
     QString familyGoodActions(int id);
     //Mostrar Infierno (Por demonio)
+    QString hellPrint();
     QString showHell(int demonIdx);
     //Mostrar Cielo (Por Hash Table)
     QString showHeaven();
@@ -132,6 +134,7 @@ struct World{
     QString printAllHumansInfo(int category, bool sins); //Busca todas las posibles llamadas para apellidos etc...
     QString printAllHumansInfoSins(int category, QString data); //Recorre toda la lista de humanos buscando coicidencias y devuelve el ID y porcentaje
     QString printAllHumansInfoGoodActions(int category, QString data);
+
 
 
     //Mapa de Continentes

@@ -1,6 +1,7 @@
 #include "sinmenu.h"
 #include "ui_sinmenu.h"
 #include <QDesktopWidget>
+
 SinMenu::SinMenu(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SinMenu)
@@ -32,6 +33,7 @@ SinMenu::SinMenu(QWidget *parent) :
     ui->TOP5->setIcon(top5);
     ui->TOP5->setIconSize(button2.size());
     ui->TOP5->setCheckable(true);
+    ui->familyState->setCheckable(true);
 }
 
 SinMenu::~SinMenu()
@@ -65,3 +67,53 @@ void SinMenu::on_TOP5_clicked(bool checked)
         }
     }
 }
+
+void SinMenu::on_familyState_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString textEditText = ui->id->toPlainText();
+            int var = textEditText.toInt();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->familySins(var);
+            ui->SCREEN->setText(msg);
+        }
+        else {
+            ui->SCREEN->clear();
+        }
+    }
+}
+
+void SinMenu::on_hLS_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString id = ui->id->toPlainText();
+            int var = id.toInt();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->familySins(var);
+            ui->SCREEN->setText(msg);
+        }
+        else {
+            ui->SCREEN->clear();
+        }
+    }
+}
+
+void SinMenu::on_CFS_clicked(bool checked)
+{
+    if(!x){
+        if (checked){
+            QString id = ui->id->toPlainText();
+            int var = id.toInt();
+            QString sName = ui->sencondN->toPlainText();
+            qDebug() << var;
+            QString msg = "Familia-----------------------\n" + mundo->searchFamily(sName,id);
+            ui->SCREEN->setText(msg);
+        }
+        else {
+            ui->SCREEN->clear();
+        }
+    }
+}
+

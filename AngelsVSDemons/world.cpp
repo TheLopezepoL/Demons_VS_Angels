@@ -57,6 +57,7 @@ void World::birth(int quant){
     }
     //Agrega hijos
     setSons();
+    populationAlive = quant +populationAlive;
     population = quant + population;
     binnacle = binnacle +"\n"+ "Se han generado: "+ QString::number(quant) + " humanos!" + " Hay un total de "+ QString::number(population) + " humanos." ;
     //Actualiza el arbol
@@ -165,8 +166,7 @@ void World::setSonsAux(Person *person){
             possibleSon = possibleSon->nxt;
         }
     }
-    //person->imprimir();
-    //person->printHijos();
+
 }
 
 /* SET SONS
@@ -231,7 +231,6 @@ void World::blessGenerator(){
  */
 void World::addCountryGA(int cant, QString name){
     Node<Counter> *tmp = paisesGA->first;
-
     while (tmp != nullptr){
         if (tmp->data->name == name){
             tmp->data->cant = tmp->data->cant + cant;
@@ -258,6 +257,7 @@ void World::countryList(){
         }
         counter = counter + 5;
     }
+
 }
 
 //IMPRIME LISTA DE PAISES
@@ -321,7 +321,7 @@ void World::sortListGoodActions(){
     Node<Counter> *index = nullptr;
     Counter *tmp;
 
-    if (paises->first == nullptr)
+    if (paisesGA->first == nullptr)
         return;
     for (current = paisesGA->first ; current->nxt != nullptr ; current = current->nxt){
         for (index = current->nxt ; index != nullptr ; index = index->nxt){
@@ -385,7 +385,7 @@ DLinkList<Counter> *World::top10GA(){
         tmp = tmp->prv;
         ++i;
     }
-    printTops(array);
+    //printTops(array);
     return array;
 }
 /* GET TOP 5 DE PAISES MENOS PECADORES
@@ -629,6 +629,16 @@ QString World::familyGoodActions(int id){
     return text;
 }
 
+QString World::hellPrint(){
+
+    QString msg = "----------------------------------------------INFIERNO----------------------------------------------\n";
+    for (int i = 0 ; i < 7 ; ++i){
+        msg =  msg + showHell(i);
+    }
+    return msg;
+}
+
+
 QString World::showHell(int demonIdx){
     Demon* demon = this->hell[demonIdx];
     if (demon != nullptr){
@@ -653,7 +663,7 @@ QString World::showHeaven(){
         for (int i = 0; i < 1000; i++){
             Node<Soul>* ptr = hash->savedHumans[i]->first;
             while (ptr != nullptr){
-                text.append("ANGEL :" + ptr->data->angel->name + ptr->data->angel->version + "\n");
+                text.append("\nANGEL :" + ptr->data->angel->name + ptr->data->angel->version + "\n");
                 text.append("Humano :\n" + ptr->data->human->showPersonalData());
                 ptr = ptr->nxt;
             }
@@ -874,4 +884,13 @@ QString World::printAllHumansInfoGoodActions(int category, QString data){
 
 
 
+//Claim sinners
+void World::claimSinners(){
+    int cantidad = populationAlive*0.05;
+    for (int i = 0 ; i < 7 ; ++i){
+        hell[i]->claimSinners(cantidad);
+        hell[i]->sendEmail();
+        populationAlive = populationAlive-cantidad;
+    }
 
+}

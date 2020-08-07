@@ -42,6 +42,14 @@ private slots:
 
     void on_SetWInner_clicked(bool checked);
 
+    void on_Damnation_clicked();
+
+    void on_Salvation_clicked();
+
+    void on_Hell_clicked(bool checked);
+
+    void on_Heaven_clicked(bool checked);
+
 private:
     Ui::MainWindow *ui;
 };
