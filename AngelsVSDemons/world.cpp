@@ -720,6 +720,169 @@ QString World::searchFamily(QString secondName, QString country){
     return text;
 }
 
+void World::printAllHumansInfo(bool sins){
+    QString text = "";
+    QString grupos[4] = {"APELLIDOS", "PAISES", "CREENCIAS", "PROFESIONES"};
+    for (int i = 0; i < 4; i++){
+        text.append("\n~ ~ ~ " + grupos[i] + " ~ ~ ~\n");
+        text.append(printAllHumansInfo(i, sins));
+    }
+    FileManager::writeFileN(text, "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfo.txt");
+}
+
+QString World::printAllHumansInfo(int category, bool sins){
+    QString text = "";
+    QStringList list;
+    switch (category) {
+    case 0:
+        list = this->secondNames;
+        break;
+    case 1:
+        list = this->countries;
+        break;
+    case 2:
+        list = this->religions;
+        break;
+    case 3:
+        list = this->careers;
+        break;
+    default:
+        break;
+    }
+    for (int i = 0; i < list.size(); i++){
+        if (sins)
+            text.append(printAllHumansInfoSins(category, list[i]));
+        else
+            text.append(printAllHumansInfoGoodActions(category, list[i]));
+    }
+    return text;
+}
+
+QString World::printAllHumansInfoSins(int category, QString data){
+    QString text = "";
+    int cantHumans = 0;
+    int cantSins = 0;
+    int totalSins = cantidadCadaPecado[0] + cantidadCadaPecado[1] + cantidadCadaPecado[2] + cantidadCadaPecado[3] + cantidadCadaPecado[4] + cantidadCadaPecado[5] + cantidadCadaPecado[6];
+    NodeHuman* ptr = this->peopleList->first;
+    Humans* chosen = new Humans();
+
+    //Elegir los que cumplen la condicion
+    while (ptr != nullptr){
+        switch (category) {
+        case 0:
+            if (ptr->person->secondName == data){
+                chosen->insertBySins(ptr->person);
+                cantHumans++;
+                cantSins += ptr->person->sins[0] + ptr->person->sins[1] + ptr->person->sins[2] + ptr->person->sins[3] + ptr->person->sins[4] + ptr->person->sins[5] + ptr->person->sins[6];
+            }
+            break;
+        case 1:
+            if (ptr->person->country == data){
+                chosen->insertBySins(ptr->person);
+                cantHumans++;
+                cantSins += ptr->person->sins[0] + ptr->person->sins[1] + ptr->person->sins[2] + ptr->person->sins[3] + ptr->person->sins[4] + ptr->person->sins[5] + ptr->person->sins[6];
+            }
+            break;
+        case 2:
+            if (ptr->person->beliefs == data){
+                chosen->insertBySins(ptr->person);
+                cantHumans++;
+                cantSins += ptr->person->sins[0] + ptr->person->sins[1] + ptr->person->sins[2] + ptr->person->sins[3] + ptr->person->sins[4] + ptr->person->sins[5] + ptr->person->sins[6];
+            }
+            break;
+        case 3:
+            if (ptr->person->career == data){
+                chosen->insertBySins(ptr->person);
+                cantHumans++;
+                cantSins += ptr->person->sins[0] + ptr->person->sins[1] + ptr->person->sins[2] + ptr->person->sins[3] + ptr->person->sins[4] + ptr->person->sins[5] + ptr->person->sins[6];
+            }
+            break;
+        }
+        ptr = ptr->nxt;
+    }
+
+    //Mostrar Lista
+    text.append("\n*" + data + "*\n");
+    text.append("Humanos: " + QString::number((cantHumans*100)/this->population) + "%\n");
+    text.append("Pecados: " + QString::number((cantSins*100)/totalSins) + "%\n\n");
+
+    ptr = chosen->first;
+    while (ptr != nullptr){
+        text.append("ID: " + QString::number(ptr->person->id) + "\t Pecados: " + QString::number(ptr->person->totalSins()) + "\n");
+        ptr = ptr->nxt;
+    }
+
+    return text;
+}
+
+
+QString World::printAllHumansInfoGoodActions(int category, QString data){
+    QString text = "";
+    int cantHumans = 0;
+    int contGA = 0;
+    int totalGA = cantidadCadaBuenaAccion[0] + cantidadCadaBuenaAccion[1] + cantidadCadaBuenaAccion[2] + cantidadCadaBuenaAccion[3] + cantidadCadaBuenaAccion[4] + cantidadCadaBuenaAccion[5] + cantidadCadaBuenaAccion[6];
+    NodeHuman* ptr = this->peopleList->first;
+    Humans* chosen = new Humans();
+
+    //Elegir los que cumplen la condicion
+    while (ptr != nullptr){
+        switch (category) {
+        case 0:
+            if (ptr->person->secondName == data){
+                chosen->insertByGA(ptr->person);
+                cantHumans++;
+                contGA += ptr->person->goodActions[0] + ptr->person->goodActions[1] + ptr->person->goodActions[2] + ptr->person->goodActions[3] + ptr->person->goodActions[4] + ptr->person->goodActions[5] + ptr->person->goodActions[6];
+            }
+            break;
+        case 1:
+            if (ptr->person->country == data){
+                chosen->insertByGA(ptr->person);
+                cantHumans++;
+                contGA += ptr->person->goodActions[0] + ptr->person->goodActions[1] + ptr->person->goodActions[2] + ptr->person->goodActions[3] + ptr->person->goodActions[4] + ptr->person->goodActions[5] + ptr->person->goodActions[6];
+            }
+            break;
+        case 2:
+            if (ptr->person->beliefs == data){
+                chosen->insertByGA(ptr->person);
+                cantHumans++;
+                contGA += ptr->person->goodActions[0] + ptr->person->goodActions[1] + ptr->person->goodActions[2] + ptr->person->goodActions[3] + ptr->person->goodActions[4] + ptr->person->goodActions[5] + ptr->person->goodActions[6];
+            }
+            break;
+        case 3:
+            if (ptr->person->career == data){
+                chosen->insertByGA(ptr->person);
+                cantHumans++;
+                contGA += ptr->person->goodActions[0] + ptr->person->goodActions[1] + ptr->person->goodActions[2] + ptr->person->goodActions[3] + ptr->person->goodActions[4] + ptr->person->goodActions[5] + ptr->person->goodActions[6];
+            }
+            break;
+        }
+        ptr = ptr->nxt;
+    }
+
+    //Mostrar Lista
+    text.append("\n*" + data + "*\n");
+    text.append("Humanos: " + QString::number((cantHumans*100)/this->population) + "%\n");
+    text.append("Buenas Acciones: " + QString::number((contGA*100)/totalGA) + "%\n\n");
+
+    ptr = chosen->first;
+    while (ptr != nullptr){
+        text.append("ID: " + QString::number(ptr->person->id) + "\t Buenas Acciones: " + QString::number(ptr->person->totalSins()) + "\n");
+        ptr = ptr->nxt;
+    }
+
+    return text;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 //Claim sinners
 void World::claimSinners(){

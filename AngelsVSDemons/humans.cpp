@@ -100,3 +100,40 @@ void Humans::insertBySins(Person *person){
         }
     }
 }
+
+
+void Humans::insertByGA(Person *person){
+    NodeHuman *tmp = this->first;
+    NodeHuman *nuevo = new NodeHuman(person);
+
+    if (this->first == nullptr){
+        this->first = this->last = nuevo;
+    }
+    else {
+        if (nuevo->person->totalSins() <= this->last->person->totalSins()){
+            this->last->nxt = nuevo;
+            nuevo->prv = this->last;
+            this->last = this->last->nxt;
+        }
+
+        else if (nuevo->person->totalSins() >= this->first->person->totalSins()){
+            this->first->prv = nuevo;
+            nuevo->nxt = this->first;
+            this->first = this->first->prv;
+        }
+        else{
+            while (tmp != nullptr) {
+
+                if (nuevo->person->totalSins() >= tmp->person->totalSins()){
+                   tmp->prv->nxt = nuevo;
+                    nuevo->prv = tmp->prv;
+                    nuevo->nxt = tmp;
+                    tmp->prv = nuevo;
+                    break;
+                }
+                tmp = tmp->nxt;
+
+            }
+        }
+    }
+}

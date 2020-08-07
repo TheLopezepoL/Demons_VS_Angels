@@ -129,8 +129,12 @@ struct World{
     QString showHeaven();
     //Buscar por Apellido y Ciudad (Aunque no esten relacionados de sangre)
     QString searchFamily(QString secondName, QString country);
-    //Imprime la lista de humanos (para la anterior)
-    QString sortListOf(Humans* list);
+    //Buscar y mostrar porcentaje de una categoria en TODOS los humanos
+    void printAllHumansInfo(bool sins);  //Llamada a la funcion, crea un archivo llamado allInfo.txt
+    QString printAllHumansInfo(int category, bool sins); //Busca todas las posibles llamadas para apellidos etc...
+    QString printAllHumansInfoSins(int category, QString data); //Recorre toda la lista de humanos buscando coicidencias y devuelve el ID y porcentaje
+    QString printAllHumansInfoGoodActions(int category, QString data);
+
 
 
     //Mapa de Continentes
