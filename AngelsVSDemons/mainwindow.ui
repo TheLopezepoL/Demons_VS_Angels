@@ -196,10 +196,10 @@
    <widget class="QPushButton" name="Hell">
     <property name="geometry">
      <rect>
-      <x>1320</x>
+      <x>1260</x>
       <y>410</y>
-      <width>181</width>
-      <height>91</height>
+      <width>111</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
@@ -265,6 +265,22 @@
       <width>161</width>
       <height>70</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Heaven">
+    <property name="geometry">
+     <rect>
+      <x>1400</x>
+      <y>410</y>
+      <width>131</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

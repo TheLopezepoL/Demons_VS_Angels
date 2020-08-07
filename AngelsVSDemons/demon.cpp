@@ -54,7 +54,8 @@ Family* Demon::min(){
 }
 
 void Demon::sendEmail(){
-    QString root = "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/Condenados/";
+    //QString root = "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/Condenados/";
+    QString root = "/home/rev/Documents/GitHub/Demons_VS_Angels/Condenados/";
     root.append("Condenacion_" + QDateTime::currentDateTime().toString("yyyyMMd_hms"));
     FileManager::writeFileN(binnacle, root);
     Email::sendEmail("Condenacion", binnacle);

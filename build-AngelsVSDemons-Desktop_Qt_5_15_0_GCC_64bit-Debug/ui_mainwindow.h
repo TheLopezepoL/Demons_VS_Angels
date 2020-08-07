@@ -41,6 +41,7 @@ public:
     QPushButton *Maps;
     QPushButton *Maps2;
     QTextEdit *cant;
+    QPushButton *Heaven;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -98,7 +99,7 @@ public:
         ABB->setFlat(true);
         Hell = new QPushButton(centralwidget);
         Hell->setObjectName(QString::fromUtf8("Hell"));
-        Hell->setGeometry(QRect(1320, 410, 181, 91));
+        Hell->setGeometry(QRect(1260, 410, 111, 81));
         Hell->setFlat(true);
         SetWInner = new QPushButton(centralwidget);
         SetWInner->setObjectName(QString::fromUtf8("SetWInner"));
@@ -115,6 +116,10 @@ public:
         cant = new QTextEdit(centralwidget);
         cant->setObjectName(QString::fromUtf8("cant"));
         cant->setGeometry(QRect(140, 140, 161, 70));
+        Heaven = new QPushButton(centralwidget);
+        Heaven->setObjectName(QString::fromUtf8("Heaven"));
+        Heaven->setGeometry(QRect(1400, 410, 131, 81));
+        Heaven->setFlat(true);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -149,6 +154,7 @@ public:
         SetWInner->setText(QString());
         Maps->setText(QString());
         Maps2->setText(QString());
+        Heaven->setText(QString());
     } // retranslateUi
 
 };
