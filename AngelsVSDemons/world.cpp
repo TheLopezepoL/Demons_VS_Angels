@@ -355,6 +355,7 @@ void World::addCountrySins(int cant ,QString name){
  * D: Retorna el top 10 de los paises mas pecadores
  */
 DLinkList<Counter> *World::top10Sins(){
+    sortListSins();
     DLinkList<Counter> *array = new DLinkList<Counter>();
     Node<Counter> *tmp = paises->last;
     int i = 0;
@@ -375,6 +376,7 @@ DLinkList<Counter> *World::top10Sins(){
  * D: Retorna el top 10 de los paises mas BUENAS ACCIONES
  */
 DLinkList<Counter> *World::top10GA(){
+    sortListGoodActions();
     DLinkList<Counter> *array = new DLinkList<Counter>();
     Node<Counter> *tmp = paisesGA->last;
     int i = 0;
@@ -395,6 +397,7 @@ DLinkList<Counter> *World::top10GA(){
  */
 
 DLinkList<Counter> *World::top5LessSins(){
+    sortListSins();
     DLinkList<Counter> *array = new DLinkList<Counter>();
     Node<Counter> *tmp = paises->first;
     int i = 0;
@@ -415,6 +418,7 @@ DLinkList<Counter> *World::top5LessSins(){
  */
 
 DLinkList<Counter> *World::top5LessGA(){
+    sortListGoodActions();
     DLinkList<Counter> *array = new DLinkList<Counter>();
     Node<Counter> *tmp = paisesGA->first;
     int i = 0;
@@ -729,9 +733,9 @@ void World::printAllHumansInfo(bool sins){
         text.append(printAllHumansInfo(i, sins));
     }
     if (sins)
-        FileManager::writeFileN(text, "/home/rev/Documents/GitHub/Demons_VS_Angels/allInfoSins.txt");
+        FileManager::writeFileN(text, "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfoSins.txt");
     else if (!sins) {
-        FileManager::writeFileN(text, "/home/rev/Documents/GitHub/Demons_VS_Angels/allInfoGoodActions.txt");
+        FileManager::writeFileN(text, "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfoGoodActions.txt");
     }
     //"/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/allInfo.txt"
 }
@@ -806,11 +810,13 @@ QString World::printAllHumansInfoSins(int category, QString data){
         }
         ptr = ptr->nxt;
     }
-
     //Mostrar Lista
     text.append("\n*" + data + "*\n");
-    text.append("Humanos: " + QString::number((cantHumans*100)/this->population) + "%\n");
-    text.append("Pecados: " + QString::number((cantSins*100)/totalSins) + "%\n\n");
+    long pct = (cantHumans*100)/this->population;
+    text.append("Humanos: " + QString::number(pct) + "%\n");
+    pct = (cantSins*100)/totalSins;
+    text.append("Pecados: " + QString::number(pct) + "%\n\n");
+    pct = 0;
 
     ptr = chosen->first;
     while (ptr != nullptr){

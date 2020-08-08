@@ -60,6 +60,7 @@ void TriArbol::newAngels(Demon* hell[7]){
                    min = person;
                person = person->nxt;
            }
+           hell[demon]->quant--;
            hell[demon]->heap->erradicate(min->data, demon);
            nuevo->humanSaved = min->data;
            // Terminar Salvar

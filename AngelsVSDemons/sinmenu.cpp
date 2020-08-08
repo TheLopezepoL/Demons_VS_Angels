@@ -12,7 +12,7 @@ SinMenu::SinMenu(QWidget *parent) :
     QPalette sample_palette;
     sample_palette.setColor(QPalette::WindowText, Qt::white);
     //BACKGROUND----------------------------------------------------------------
-    QString path = "/home/rev/Documents/GitHub/Demons_VS_Angels/ImagenesGUI";
+    QString path = "/home/thelopezepol/Escritorio/C++/ED S1 2020/Demons_VS_Angels/ImagenesGUI";
     resize(QDesktopWidget().availableGeometry(this).size() * 0.80);
     QPixmap bgnd(path + "/hell.jpeg");
     bgnd = bgnd.scaled(this->size(),Qt::IgnoreAspectRatio);
