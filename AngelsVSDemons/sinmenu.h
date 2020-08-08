@@ -28,7 +28,6 @@ private slots:
 
     void on_CFS_clicked(bool checked);
 
-    void on_familyStats_clicked(bool checked);
 
 private:
     Ui::SinMenu *ui;

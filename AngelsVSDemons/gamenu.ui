@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="top10">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>580</y>
+     <x>230</x>
+     <y>690</y>
      <width>241</width>
      <height>81</height>
     </rect>
@@ -32,8 +32,8 @@
   <widget class="QPushButton" name="top5">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>670</y>
+     <x>230</x>
+     <y>780</y>
      <width>241</width>
      <height>81</height>
     </rect>
@@ -549,7 +549,7 @@
     </rect>
    </property>
    <property name="text">
-    <string>Highest to Lower Sinners</string>
+    <string>Highest to Lower Nice People</string>
    </property>
   </widget>
   <widget class="QPushButton" name="CFS">

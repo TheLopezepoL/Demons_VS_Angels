@@ -93,7 +93,6 @@ void GAMenu::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 2: _t->on_familyState_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 3: _t->on_hLS_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 4: _t->on_CFS_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 5: _t->on_familyStats_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         default: ;
         }
     }

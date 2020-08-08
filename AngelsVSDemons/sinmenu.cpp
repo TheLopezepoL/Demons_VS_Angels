@@ -34,6 +34,8 @@ SinMenu::SinMenu(QWidget *parent) :
     ui->TOP5->setIconSize(button2.size());
     ui->TOP5->setCheckable(true);
     ui->familyState->setCheckable(true);
+    ui->hLS->setCheckable(true);
+    ui->CFS->setCheckable(true);
 }
 
 SinMenu::~SinMenu()
@@ -88,27 +90,25 @@ void SinMenu::on_hLS_clicked(bool checked)
 {
     if(!x){
         if (checked){
-            QString id = ui->id->toPlainText();
-            int var = id.toInt();
-            qDebug() << var;
-            QString msg = "Familia-----------------------\n" + mundo->familySins(var);
+            QString msg = "ARCHIVO TXT CREADO!";
+            mundo->printAllHumansInfo(true);
             ui->SCREEN->setText(msg);
+        }
         }
         else {
             ui->SCREEN->clear();
         }
-    }
 }
+
 
 void SinMenu::on_CFS_clicked(bool checked)
 {
     if(!x){
         if (checked){
-            QString id = ui->id->toPlainText();
-            int var = id.toInt();
+            QString pais = ui->Pais->toPlainText();
             QString sName = ui->sencondN->toPlainText();
-            qDebug() << var;
-            QString msg = "Familia-----------------------\n" + mundo->searchFamily(sName,id);
+
+            QString msg = "Familia-----------------------\n" + mundo->searchFamily(sName,pais);
             ui->SCREEN->setText(msg);
         }
         else {
